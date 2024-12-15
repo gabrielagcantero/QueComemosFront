@@ -23,7 +23,7 @@ import {UsuarioRegistroComponent} from '../components/usuario/usuario-registro/u
 import {UsuarioSugerenciaComponent} from '../components/usuario/usuario-sugerencia/usuario-sugerencia.component'; // Ruta de usuarios
 
 const routes: Routes = [
-  { path: '', component: ResponsableHomeComponent },
+  { path: 'responsable-home', component: ResponsableHomeComponent },
   { path: 'responsable-usuarios', component: ResponsableUsuariosComponent },
   { path: 'responsable-pagos', component: ResponsablePagosComponent },
   { path: 'responsable-sugerencias', component: ResponsableSugerenciasComponent},
@@ -32,7 +32,7 @@ const routes: Routes = [
   { path: 'responsable-agregar-pago', component: ResponsableAgregarPagoComponent },
   { path: 'usuario-editar-perfil', component: UsuarioEditarPerfilComponent },
   { path: 'usuario-home', component: UsuarioHomeComponent },
-  { path: 'usuario-login', component: UsuarioLoginComponent },
+  { path: '', component: UsuarioLoginComponent },
   { path: 'usuario-menu-del-dia', component: UsuarioMenuDelDiaComponent },
   { path: 'usuario-registro', component: UsuarioRegistroComponent },
   { path: 'usuario-sugerencia', component: UsuarioSugerenciaComponent },
