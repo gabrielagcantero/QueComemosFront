@@ -5,10 +5,62 @@ body {
   padding: 0px;
 }
 
-h1 {
+h1,h3 {
   color: #5f2525
 ;
   padding: 0 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.menu, .carta-item {
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-info {
+  flex-grow: 1;
+}
+
+.menu h2 {
+  margin-top: 0;
+}
+
+.menu-price {
+  font-weight: bold;
+  color: #5f2525;
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.carta-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 15px;
+}
+
+.carta-item-info {
+  flex-grow: 1;
+}
+
+.carta-item-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.carta-item-price {
+  color: #888;
 }
 
 nav {
@@ -136,6 +188,18 @@ form {
   margin: auto;
 }
 
+select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.total {
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: right;
+}
+
 input {
   width: 100%;
   padding: 10px;
@@ -151,6 +215,21 @@ button {
   cursor: pointer;
 }
 
+button:hover {
+  background-color: #5f2525;
+}
+
+.purchase-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.menu-actions {
+  display: flex;
+  align-items: center;
+}
+
 button.cancel {
   background:
     white;
@@ -158,4 +237,30 @@ button.cancel {
     #5f2525;
   border: 2px solid
   #5f2525;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  margin-top: -20px;
+}
+
+.buttons button {
+  color: white;
+  background: #333;
+  padding: 30px;
+  margin: 10px;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  border-radius: 15px;
+  width: 20%;
+}
+
+.profile-image {
+  width: 100px;
+  align-items: center;
 }
