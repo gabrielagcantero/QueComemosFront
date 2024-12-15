@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Pagos - ¿Qué comemos?</title>
+</head>
+<body>
+<nav>
+  <div class="logo">
+    <img src="assets/logo-facultad.png" alt="Logo de la Facultad">
+    <h2>
+      <a [routerLink]="['']"
+         style="color: inherit; text-decoration: none;">¿Qué comemos?</a>
+    </h2>
+  </div>
+  <div class="profile">
+    <img src="../user.jpg" alt="Foto del Usuario">
+    <div class="dropdown">
+      <button class="dropbtn">Mi Perfil</button>
+      <div class="dropdown-content">
+        <button [routerLink]="['/responsable-editar-perfil']">Editar Perfil</button> <a
+        href="logout.html">Salir</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<h1>Registro de Pagos</h1>
+  <button class="add-pago" [routerLink]="['/responsable-agregar-pago']">Agregar nuevo pago</button>
+<table>
+  <tr>
+    <th>Usuario</th>
+    <th>Monto</th>
+    <th>Fecha</th>
+    <th>Método de Pago</th>
+  </tr>
+  <tr>
+    <td>Laura Sánchez</td>
+    <td>$500</td>
+    <td>21-09-2024</td>
+    <td>Efectivo</td>
+  </tr>
+  <tr>
+    <td>Pedro Rodríguez</td>
+    <td>$1000</td>
+    <td>21-09-2024</td>
+    <td>Tarjeta de Débito</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { ResponsableHomeComponent } from '../components/responsable-home/responsable-home.component.spec';
+import { RouterOutlet } from '@angular/router';  // Necesario para el enrutamiento
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ResponsableHomeComponent],
+  imports: [RouterOutlet ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  standalone: true,
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'QueComemosFront';
+  title = 'QueComemos';  // Título de la aplicación
 }

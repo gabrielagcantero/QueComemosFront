@@ -4,14 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Panel de Responsable de Turno - ¿Qué comemos?</title>
-
 </head>
 <body>
 	<nav>
 		<div class="logo">
-			<img src="../logo-facultad.png" alt="Logo de la Facultad">
+			<img src="assets/logo-facultad.png" alt="Logo de la Facultad">
 			<h2>
-				<a href="resp-home.html"
+				<a [routerLink]="['']"
 					style="color: inherit; text-decoration: none;">¿Qué comemos?</a>
 			</h2>
 		</div>
@@ -20,7 +19,7 @@
 			<div class="dropdown">
 				<button class="dropbtn">Mi Perfil</button>
 				<div class="dropdown-content">
-					<a href="resp-editar-perfil.html">Editar perfil</a> <a
+          <button [routerLink]="['/responsable-editar-perfil']">Editar Perfil</button> <a
 						href="logout.html">Salir</a>
 				</div>
 			</div>
@@ -28,10 +27,10 @@
 	</nav>
 	<h1>Panel de Responsable de Turno</h1>
 	<div class="buttons">
-		<button onclick="location.href='resp-usuarios.html'">Usuarios Habilitados</button>
-		<button onclick="location.href='resp-compras.html'">Compras de Menús</button>
-		<button onclick="location.href='resp-pagos.html'">Registro de Pagos</button>
-		<button onclick="location.href='resp-sugerencias.html'">Ver Sugerencias</button>
+    <button [routerLink]="['/responsable-usuarios']">Usuarios Habilitados</button>
+    <button [routerLink]="['/responsable-compras']">Compras de Menús</button>
+    <button [routerLink]="['/responsable-pagos']">Registro de Pagos</button>
+    <button [routerLink]="['/responsable-sugerencias']">Ver Sugerencias</button>
 	</div>
 </body>
 </html>

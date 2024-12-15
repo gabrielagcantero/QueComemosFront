@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usuarios Habilitados - ¿Qué comemos?</title>
+</head>
+<body>
+<nav>
+  <div class="logo">
+    <img src="assets/logo-facultad.png" alt="Logo de la Facultad">
+    <h2>
+      <a [routerLink]="['']"
+         style="color: inherit; text-decoration: none;">¿Qué comemos?</a>
+    </h2>
+  </div>
+  <div class="profile">
+    <img src="../user.jpg" alt="Foto del Usuario">
+    <div class="dropdown">
+      <button class="dropbtn">Mi Perfil</button>
+      <div class="dropdown-content">
+        <button [routerLink]="['/responsable-editar-perfil']">Editar Perfil</button> <a
+        href="logout.html">Salir</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<h1>Usuarios Habilitados para Compra</h1>
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>DNI</th>
+    <th>Estado</th>
+  </tr>
+  <tr>
+    <td>Laura Sánchez</td>
+    <td>12345678</td>
+    <td>Habilitado</td>
+  </tr>
+  <tr>
+    <td>Pedro Rodríguez</td>
+    <td>87654321</td>
+    <td>Deshabilitado</td>
+  </tr>
+</table>
+</body>
+</html>
