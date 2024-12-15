@@ -5,6 +5,7 @@ import {RouterModule} from '@angular/router';
   selector: 'app-responsable-compras',
   imports: [RouterModule],
   templateUrl: './responsable-compras.component.html',
+  standalone: true,
   styleUrl: '../../../styles.css'
 })
 export class ResponsableComprasComponent {

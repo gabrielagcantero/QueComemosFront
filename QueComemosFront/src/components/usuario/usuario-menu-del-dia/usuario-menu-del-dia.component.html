@@ -5,29 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Menú del Día y Carta Completa</title>
 </head>
-</head>
 <body>
 <nav>
   <div class="logo">
-    <img src="../logo-facultad.png" alt="Logo de la Facultad">
+    <img src="assets/logo-facultad.png" alt="Logo de la Facultad">
     <h2>
-      <a href="usuario-home.html"
+      <a [routerLink]="['/usuario-home']"
          style="color: inherit; text-decoration: none;">¿Qué comemos?</a>
     </h2>
   </div>
   <div class="profile">
-    <img src="../user.jpg" alt="Foto del Usuario">
+    <img src="assets/user.jpg" alt="Foto del Usuario">
     <div class="dropdown">
       <button class="dropbtn">Mi Perfil</button>
       <div class="dropdown-content">
-        <a href="usuario-editar-perfil.html">Editar perfil</a> <a
+        <button [routerLink]="['/usuario-editar-perfil']">Editar Perfil</button> <a
         href="logout.html">Salir</a>
       </div>
     </div>
   </div>
 </nav>
 
-<br></br>
 
 <div class="container">
   <h1>Menú del Día</h1>
@@ -91,14 +89,12 @@
       </select>
     </div>
   </div>
-  <br></br>
-
   <h1>Carta Completa</h1>
 
   <h3>Entradas</h3>
 
   <div class="carta-item">
-    <img src="../imagen-no-disponible.jpeg" alt="Medialunas">
+    <img src="assets/imagen-no-disponible.jpeg" alt="Medialunas">
     <div class="carta-item-info">
       <div class="carta-item-name">Medialunas</div>
       <div class="carta-item-price">$50</div>
@@ -114,7 +110,7 @@
   </div>
 
   <div class="carta-item">
-    <img src="../imagen-no-disponible.jpeg" alt="Café">
+    <img src="assets/imagen-no-disponible.jpeg" alt="Café">
     <div class="carta-item-info">
       <div class="carta-item-name">Café</div>
       <div class="carta-item-price">$100</div>
@@ -129,12 +125,12 @@
     </select>
   </div>
 
-  <br></br>
+
 
   <h3>Platos principales</h3>
 
   <div class="carta-item">
-    <img src="../imagen-no-disponible.jpeg" alt="Té">
+    <img src="assets/imagen-no-disponible.jpeg" alt="Té">
     <div class="carta-item-info">
       <div class="carta-item-name">Té</div>
       <div class="carta-item-price">$80</div>
@@ -150,7 +146,7 @@
   </div>
 
   <div class="carta-item">
-    <img src="../imagen-no-disponible.jpeg" alt="Agua mineral">
+    <img src="assets/imagen-no-disponible.jpeg" alt="Agua mineral">
     <div class="carta-item-info">
       <div class="carta-item-name">Agua mineral</div>
       <div class="carta-item-price">$120</div>
@@ -165,12 +161,12 @@
     </select>
   </div>
 
-  <br></br>
+
 
   <h3>Postres</h3>
 
   <div class="carta-item">
-    <img src="../imagen-no-disponible.jpeg" alt="Jugo de naranja">
+    <img src="assets/imagen-no-disponible.jpeg" alt="Jugo de naranja">
     <div class="carta-item-info">
       <div class="carta-item-name">Jugo de naranja</div>
       <div class="carta-item-price">$150</div>
@@ -186,7 +182,7 @@
   </div>
 
   <div class="carta-item">
-    <img src="../imagen-no-disponible.jpeg" alt="Jugo de naranja">
+    <img src="assets/imagen-no-disponible.jpeg" alt="Jugo de naranja">
     <div class="carta-item-info">
       <div class="carta-item-name">Jugo de naranja</div>
       <div class="carta-item-price">$150</div>
@@ -201,12 +197,12 @@
     </select>
   </div>
 
-  <br></br>
+
 
   <h3>Bebidas</h3>
 
   <div class="carta-item">
-    <img src="../imagen-no-disponible.jpeg" alt="Jugo de naranja">
+    <img src="assets/imagen-no-disponible.jpeg" alt="Jugo de naranja">
     <div class="carta-item-info">
       <div class="carta-item-name">Jugo de naranja</div>
       <div class="carta-item-price">$150</div>
@@ -222,7 +218,7 @@
   </div>
 
   <div class="carta-item">
-    <img src="../imagen-no-disponible.jpeg" alt="Jugo de naranja">
+    <img src="assets/imagen-no-disponible.jpeg" alt="Jugo de naranja">
     <div class="carta-item-info">
       <div class="carta-item-name">Jugo de naranja</div>
       <div class="carta-item-price">$150</div>
@@ -238,7 +234,7 @@
   </div>
 
   <div class="total">Total: ---</div>
-  <br></br>
+
 
   <div class="purchase-button-container">
     <button
@@ -247,4 +243,6 @@
   </div>
 </div>
 </body>
+
+
 </html>

@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';  // Importa RouterModule aquí
   selector: 'app-responsable-usuarios',
   imports: [RouterModule],  // Importa RouterModule en el componente standalone
   templateUrl: './responsable-usuarios.component.html',
+  standalone: true,
   styleUrls: ['../../../styles.css']
 })
 export class ResponsableUsuariosComponent {

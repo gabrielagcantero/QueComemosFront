@@ -5,6 +5,7 @@ import {RouterModule} from '@angular/router';
   selector: 'app-responsable-pagos',
   imports: [RouterModule],
   templateUrl: './responsable-pagos.component.html',
+  standalone: true,
   styleUrl: '../../../styles.css'
 })
 export class ResponsablePagosComponent {

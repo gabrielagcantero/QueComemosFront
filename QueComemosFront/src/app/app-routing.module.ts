@@ -12,7 +12,15 @@ import {
 } from '../components/responsable/responsable-editar-perfil/responsable-editar-perfil.component';
 import {
   ResponsableAgregarPagoComponent
-} from '../components/responsable/responsable-agregar-pago/responsable-agregar-pago.component'; // Ruta de usuarios
+} from '../components/responsable/responsable-agregar-pago/responsable-agregar-pago.component';
+import {
+  UsuarioEditarPerfilComponent
+} from '../components/usuario/usuario-editar-perfil/usuario-editar-perfil.component';
+import {UsuarioHomeComponent} from '../components/usuario/usuario-home/usuario-home.component';
+import {UsuarioLoginComponent} from '../components/usuario/usuario-login/usuario-login.component';
+import {UsuarioMenuDelDiaComponent} from '../components/usuario/usuario-menu-del-dia/usuario-menu-del-dia.component';
+import {UsuarioRegistroComponent} from '../components/usuario/usuario-registro/usuario-registro.component';
+import {UsuarioSugerenciaComponent} from '../components/usuario/usuario-sugerencia/usuario-sugerencia.component'; // Ruta de usuarios
 
 const routes: Routes = [
   { path: '', component: ResponsableHomeComponent },
@@ -22,6 +30,12 @@ const routes: Routes = [
   { path: 'responsable-compras', component: ResponsableComprasComponent },
   { path: 'responsable-editar-perfil', component: ResponsableEditarPerfilComponent },
   { path: 'responsable-agregar-pago', component: ResponsableAgregarPagoComponent },
+  { path: 'usuario-editar-perfil', component: UsuarioEditarPerfilComponent },
+  { path: 'usuario-home', component: UsuarioHomeComponent },
+  { path: 'usuario-login', component: UsuarioLoginComponent },
+  { path: 'usuario-menu-del-dia', component: UsuarioMenuDelDiaComponent },
+  { path: 'usuario-registro', component: UsuarioRegistroComponent },
+  { path: 'usuario-sugerencia', component: UsuarioSugerenciaComponent },
 ];
 
 @NgModule({
