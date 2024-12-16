@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import {RouterModule} from '@angular/router';
 
 @Component({
   selector: 'app-admin-editar-menu',
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './admin-editar-menu.component.html',
-  styleUrl: './admin-editar-menu.component.css'
+  styleUrl: '../../../styles.css'
 })
 export class AdminEditarMenuComponent {
 

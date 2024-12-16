@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import {RouterModule} from '@angular/router';
 
 @Component({
   selector: 'app-admin-comidas',
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './admin-comidas.component.html',
-  styleUrl: './admin-comidas.component.css'
+  styleUrl: '../../../styles.css'
 })
 export class AdminComidasComponent {
 

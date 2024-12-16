@@ -1,1 +1,49 @@
-<p>admin-agregar-comida works!</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agregar nueva comida - ¿Qué comemos?</title>
+</head>
+<body>
+<nav>
+  <div class="logo">
+    <img src="../logo-facultad.png" alt="Logo de la Facultad">
+    <h2>
+      <a href="admin-home.html"
+         style="color: inherit; text-decoration: none;">¿Qué comemos?</a>
+    </h2>
+  </div>
+  <div class="profile">
+    <img src="../user.jpg" alt="Foto del Usuario">
+    <p>Salir</p>
+  </div>
+</nav>
+<h1>Agregar nueva comida</h1>
+<form>
+  <input type="text" placeholder="Nombre de la nueva comida" required>
+  <input type="text" placeholder="Precio de la nueva comida" required>
+  <select required>
+    <option value="">Seleccione categoría</option>
+    <option value="alimentos">Entrada</option>
+    <option value="infraestructura">Plato principal</option>
+    <option value="servicios">Bebida</option>
+    <option value="otros">Postre</option>
+  </select>
+  <div class="checkbox-esComida">
+    <input type="checkbox" id="esComida" name="esComida" value="Si">
+    <label for="esComida">¿Se ofrece en la carta de comidas?</label>
+  </div>
+  <br></br>
+  <div class="input-group">
+    <label for="fileInput">Agregar imagen (opcional)</label> <input
+    type="file" id="fileInput">
+  </div>
+  <br></br>
+  <button type="submit">Agregar comida</button>
+  <br></br>
+  <button class="cancel"
+          onclick="window.location.href='admin-comidas.html'">Cancelar</button>
+</form>
+</body>
+</html>

@@ -1,1 +1,52 @@
-<p>admin-usuarios works!</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administración de Usuarios - ¿Qué comemos?</title>
+</head>
+<body>
+<nav>
+  <div class="logo">
+    <img src="../logo-facultad.png" alt="Logo de la Facultad">
+    <h2>
+      <a href="admin-home.html"
+         style="color: inherit; text-decoration: none;">¿Qué comemos?</a>
+    </h2>
+  </div>
+  <div class="profile">
+    <img src="../user.jpg" alt="Foto del Usuario">
+    <p>Salir</p>
+  </div>
+</nav>
+<h1>Administración de Usuarios</h1>
+<button class="add-user"
+        onclick="window.location.href='admin-agregar-usuario.html'">
+  Agregar nuevo usuario</button>
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Turno</th>
+    <th>Acciones</th>
+  </tr>
+  <tr>
+    <td>Ana Martínez</td>
+    <td>Mañana</td>
+    <td>
+      <button
+        onclick="window.location.href='admin-editar-usuario.html'">
+        Editar</button>
+      <button>Eliminar</button>
+    </td>
+  </tr>
+  <tr>
+    <td>Carlos López</td>
+    <td>Tarde</td>
+    <td>
+      <button>Editar</button>
+      <button>Eliminar</button>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

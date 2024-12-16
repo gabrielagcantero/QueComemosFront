@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import {RouterModule} from '@angular/router';
 
 @Component({
   selector: 'app-admin-agregar-menu',
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './admin-agregar-menu.component.html',
-  styleUrl: './admin-agregar-menu.component.css'
+  styleUrl: '../../../styles.css'
 })
 export class AdminAgregarMenuComponent {
 

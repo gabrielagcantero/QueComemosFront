@@ -1,1 +1,60 @@
-<p>admin-estadisticas works!</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estadísticas - ¿Qué comemos?</title>
+</head>
+<body>
+<nav>
+  <div class="logo">
+    <img src="../logo-facultad.png" alt="Logo de la Facultad">
+    <h2>
+      <a href="admin-home.html">¿Qué comemos?</a>
+    </h2>
+  </div>
+  <div class="profile">
+    <img src="../user.jpg" alt="Foto del Usuario">
+    <p>Salir</p>
+  </div>
+</nav>
+<h1>Estadísticas</h1>
+<h2>Menús más vendidos</h2>
+<p style="margin-left: 50px;"> Seleccione Periodo:
+  <select>
+    <option value="dia">En el día</option>
+    <option value="semana">En la semana</option>
+    <option value="mes">En el mes</option>
+  </select>
+</p>
+<div class="chart">
+  <!-- Aquí iría un gráfico real -->
+  <img src="/api/placeholder/600/300"
+       alt="Gráfico de menús más vendidos">
+</div>
+<h2>Ingresos por período</h2>
+<p style="margin-left: 50px;"> Seleccione Periodo:
+  <select>
+    <option value="dia">En el día</option>
+    <option value="semana">En la semana</option>
+    <option value="mes">En el mes</option>
+  </select>
+</p>
+<div class="chart">
+  <img src="/api/placeholder/600/300"
+       alt="Gráfico de ingresos por período">
+</div>
+<h2>Distribución de sugerencias</h2>
+<p style="margin-left: 50px;"> Seleccione Periodo:
+  <select>
+    <option value="dia">En el día</option>
+    <option value="semana">En la semana</option>
+    <option value="mes">En el mes</option>
+  </select>
+</p>
+<div class="chart">
+  <img src="/api/placeholder/600/300"
+       alt="Gráfico de distribución de sugerencias">
+</div>
+</body>
+</html>

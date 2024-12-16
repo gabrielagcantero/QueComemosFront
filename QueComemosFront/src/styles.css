@@ -5,7 +5,7 @@ body {
   padding: 0px;
 }
 
-h1,h3 {
+h1, h2, h3 {
   color: #5f2525
 ;
   padding: 0 20px;
@@ -40,6 +40,21 @@ h1,h3 {
   color: #5f2525;
   font-size: 1.2em;
   margin: 10px 0;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-item span {
+  text-align: center;
+}
+
+.menu-image {
+  width: 100px;
+  height: 100px;
 }
 
 .carta-item img {
@@ -82,6 +97,11 @@ nav .logo img {
   height: 50px;
   border-radius: 50%;
   margin-right: 10px;
+}
+
+nav .logo a {
+  color:black;
+  text-decoration: none;
 }
 
 nav .profile {
@@ -176,11 +196,30 @@ th, td {
 th {
   background-color: #5f2525;
   color: white;
+  text-align: center;
 }
 
 .add-pago {
   display: block;
   margin: auto auto 30px;
+}
+
+.add-menu {
+  display: block;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.add-user {
+  display: block;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.add-comida {
+  display: block;
+  margin: auto;
+  margin-bottom: 30px;
 }
 
 form {
@@ -204,6 +243,21 @@ input {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
+}
+
+.input-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-group input {
+  width: 200%;
+}
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }
 
 button {
@@ -263,4 +317,42 @@ button.cancel {
 .profile-image {
   width: 100px;
   align-items: center;
+}
+
+.chart {
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+  margin: 20px auto;
+  background-color: #f0f0f0;
+}
+
+.checkbox-vegie {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: left;
+}
+
+#vegetariano {
+  width: 30px;
+}
+
+.fecha-venta {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.checkbox-esComida {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: left;
+}
+
+#esComida {
+  width: 30px;
 }

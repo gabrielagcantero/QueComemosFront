@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import {RouterModule} from '@angular/router';
 
 @Component({
   selector: 'app-admin-usuarios',
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './admin-usuarios.component.html',
-  styleUrl: './admin-usuarios.component.css'
+  styleUrl: '../../../styles.css'
 })
 export class AdminUsuariosComponent {
 

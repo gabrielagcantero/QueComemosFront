@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import {RouterModule} from '@angular/router';
 
 @Component({
   selector: 'app-admin-sugerencia',
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './admin-sugerencia.component.html',
-  styleUrl: './admin-sugerencia.component.css'
+  styleUrl: '../../../styles.css'
 })
 export class AdminSugerenciaComponent {
 

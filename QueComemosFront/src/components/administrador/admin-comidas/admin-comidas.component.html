@@ -1,1 +1,79 @@
-<p>admin-comidas works!</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administración de Comidas - ¿Qué comemos?</title>
+</head>
+<body>
+<nav>
+  <div class="logo">
+    <img src="../logo-facultad.png" alt="Logo de la Facultad">
+    <h2>
+      <a href="admin-home.html"
+         style="color: inherit; text-decoration: none;">¿Qué comemos?</a>
+    </h2>
+  </div>
+  <div class="profile">
+    <img src="../user.jpg" alt="Foto del Usuario">
+    <p>Salir</p>
+  </div>
+</nav>
+<h1>Administración de Comidas</h1>
+<button class="add-comida"
+        onclick="window.location.href='admin-agregar-comida.html'">Agregar
+  nueva comida</button>
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Precio</th>
+    <th>Imagen</th>
+    <th>Categoría</th>
+    <th>Acciones</th>
+  </tr>
+  <tr>
+    <td>Empanadas</td>
+    <td>$500</td>
+    <td>
+      <div class="menu-item">
+        <img class="menu-image" src="../imagen-no-disponible.jpeg" alt="Imagen de empanadas">
+      </div>
+    </td>
+    <td>Entrada</td>
+    <td>
+      <button onclick="window.location.href='admin-editar-comida.html'">Editar</button>
+      <button>Eliminar</button>
+    </td>
+  </tr>
+  <tr>
+    <td>Tarta</td>
+    <td>$1500</td>
+    <td>
+      <div class="menu-item">
+        <img class="menu-image" src="../imagen-no-disponible.jpeg" alt="Imagen de tarta">
+      </div>
+    </td>
+    <td>Plato principal</td>
+    <td>
+      <button onclick="window.location.href='admin-editar-comida.html'">Editar</button>
+      <button>Eliminar</button>
+    </td>
+  </tr>
+  <tr>
+    <td>Sandwiches</td>
+    <td>$1500</td>
+    <td>
+      <div class="menu-item">
+        <img class="menu-image" src="../imagen-no-disponible.jpeg" alt="Imagen de sandwiches">
+      </div>
+    </td>
+    <td>Plato principal</td>
+    <td>
+      <button onclick="window.location.href='admin-editar-comida.html'">Editar</button>
+      <button>Eliminar</button>
+    </td>
+  </tr>
+  <!-- Repite para cada menú -->
+</table>
+</body>
+</html>
