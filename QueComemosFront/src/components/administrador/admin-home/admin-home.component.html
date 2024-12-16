@@ -1,31 +1,23 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Panel de Administración - ¿Qué comemos?</title
-</head>
-<body>
+
 <nav>
   <div class="logo">
-    <img src="../logo-facultad.png" alt="Logo de la Facultad">
+    <img src="assets/logo-facultad.png" alt="Logo de la Facultad">
     <h2>
-      <a href="admin-home.html"
+      <a [routerLink]="['/admin-home']"
          style="color: inherit; text-decoration: none;">¿Qué comemos?</a>
     </h2>
   </div>
   <div class="profile">
-    <img src="../user.jpg" alt="Foto del Usuario">
+    <img src="assets/user.jpg" alt="Foto del Usuario">
     <p>Salir</p>
   </div>
 </nav>
 <h1>Panel de Administración General</h1>
 <div class="buttons">
-  <button onclick="location.href='admin-menus.html'">Administrar Menús</button>
-  <button onclick="location.href='admin-comidas.html'">Administrar Comidas</button>
-  <button onclick="location.href='admin-sugerencias.html'">Ver Sugerencias</button>
-  <button onclick="location.href='admin-estadisticas.html'">Ver Estadísticas</button>
-  <button onclick="location.href='admin-usuarios.html'">Administrar Usuarios</button>
+  <button [routerLink]="['/admin-menus']">Administrar Menús</button>
+  <button [routerLink]="['/admin-comidas']">Administrar Comidas</button>
+  <button [routerLink]="['/admin-sugerencia']">Ver Sugerencias</button>
+  <button [routerLink]="['/admin-estadisticas']">Ver Estadísticas</button>
+  <button [routerLink]="['/admin-usuarios']">Administrar Usuarios</button>
 </div>
-</body>
-</html>
+

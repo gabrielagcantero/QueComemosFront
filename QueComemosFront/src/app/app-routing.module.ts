@@ -20,9 +20,30 @@ import {UsuarioHomeComponent} from '../components/usuario/usuario-home/usuario-h
 import {UsuarioLoginComponent} from '../components/usuario/usuario-login/usuario-login.component';
 import {UsuarioMenuDelDiaComponent} from '../components/usuario/usuario-menu-del-dia/usuario-menu-del-dia.component';
 import {UsuarioRegistroComponent} from '../components/usuario/usuario-registro/usuario-registro.component';
-import {UsuarioSugerenciaComponent} from '../components/usuario/usuario-sugerencia/usuario-sugerencia.component'; // Ruta de usuarios
+import {UsuarioSugerenciaComponent} from '../components/usuario/usuario-sugerencia/usuario-sugerencia.component';
+import {
+  AdminAgregarComidaComponent
+} from '../components/administrador/admin-agregar-comida/admin-agregar-comida.component';
+import {AdminAgregarMenuComponent} from '../components/administrador/admin-agregar-menu/admin-agregar-menu.component';
+import {
+  AdminAgregarUsuarioComponent
+} from '../components/administrador/admin-agregar-usuario/admin-agregar-usuario.component';
+import {AdminComidasComponent} from '../components/administrador/admin-comidas/admin-comidas.component';
+import {
+  AdminEditarComidaComponent
+} from '../components/administrador/admin-editar-comida/admin-editar-comida.component';
+import {AdminEditarMenuComponent} from '../components/administrador/admin-editar-menu/admin-editar-menu.component';
+import {
+  AdminEditarUsuarioComponent
+} from '../components/administrador/admin-editar-usuario/admin-editar-usuario.component';
+import {AdminEstadisticasComponent} from '../components/administrador/admin-estadisticas/admin-estadisticas.component';
+import {AdminHomeComponent} from '../components/administrador/admin-home/admin-home.component';
+import {AdminMenusComponent} from '../components/administrador/admin-menus/admin-menus.component';
+import {AdminSugerenciaComponent} from '../components/administrador/admin-sugerencia/admin-sugerencia.component';
+import {AdminUsuariosComponent} from '../components/administrador/admin-usuarios/admin-usuarios.component'; // Ruta de usuarios
 
 const routes: Routes = [
+  //INICIO RESPONSABLE
   { path: 'responsable-home', component: ResponsableHomeComponent },
   { path: 'responsable-usuarios', component: ResponsableUsuariosComponent },
   { path: 'responsable-pagos', component: ResponsablePagosComponent },
@@ -30,12 +51,31 @@ const routes: Routes = [
   { path: 'responsable-compras', component: ResponsableComprasComponent },
   { path: 'responsable-editar-perfil', component: ResponsableEditarPerfilComponent },
   { path: 'responsable-agregar-pago', component: ResponsableAgregarPagoComponent },
+  //FIN RESPONSABLE
+
+  //INICIO USUARIOS
   { path: 'usuario-editar-perfil', component: UsuarioEditarPerfilComponent },
   { path: 'usuario-home', component: UsuarioHomeComponent },
   { path: '', component: UsuarioLoginComponent },
   { path: 'usuario-menu-del-dia', component: UsuarioMenuDelDiaComponent },
   { path: 'usuario-registro', component: UsuarioRegistroComponent },
   { path: 'usuario-sugerencia', component: UsuarioSugerenciaComponent },
+  //FIN USUARIOS
+
+  //INICIO ADMIN
+  { path: 'admin-agregar-comida', component: AdminAgregarComidaComponent },
+  { path: 'admin-agregar-menu', component: AdminAgregarMenuComponent },
+  { path: 'admin-agergar-usuario', component: AdminAgregarUsuarioComponent },
+  { path: 'admin-comidas', component: AdminComidasComponent },
+  { path: 'admin-editar-comida', component: AdminEditarComidaComponent },
+  { path: 'admin-editar-menu', component: AdminEditarMenuComponent },
+  { path: 'admin-editar-usuario', component: AdminEditarUsuarioComponent },
+  { path: 'admin-estadisticas', component: AdminEstadisticasComponent },
+  { path: 'admin-home', component: AdminHomeComponent },
+  { path: 'admin-menus', component: AdminMenusComponent },
+  { path: 'admin-sugerencia', component: AdminSugerenciaComponent },
+  { path: 'admin-usuarios', component: AdminUsuariosComponent },
+  //FIN ADMIN
 ];
 
 @NgModule({

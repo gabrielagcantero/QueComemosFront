@@ -8,21 +8,21 @@
 <body>
 <nav>
   <div class="logo">
-    <img src="../logo-facultad.png" alt="Logo de la Facultad">
+    <img src="assets/logo-facultad.png" alt="Logo de la Facultad">
     <h2>
-      <a href="admin-home.html"
+      <a [routerLink]="['/admin-home']"
          style="color: inherit; text-decoration: none;">¿Qué comemos?</a>
     </h2>
   </div>
   <div class="profile">
-    <img src="../user.jpg" alt="Foto del Usuario">
+    <img src="assets/user.jpg" alt="Foto del Usuario">
     <p>Salir</p>
   </div>
 </nav>
 <h1>Editar menú</h1>
 <form>
   <input type="text" placeholder="Nombre del menú" required><br>
-  <input type="text" placeholder="Precio del menú"><br></br>
+  <input type="text" placeholder="Precio del menú"><br>
   <select
     required>
     <option value="">Seleccione tipo Entrada</option>
@@ -49,18 +49,17 @@
   </select>
   <div class="checkbox-vegie">
     <input type="checkbox" id="vegetariano" name="vegetariano" value="Si">
-    <label for="vegetariano">¿Es vegetariano?</label> <br></br>
+    <label for="vegetariano">¿Es vegetariano?</label> <br>
   </div>
-  <br></br>
+  <br>
   <div class="fecha-venta">
     <label for="fechaVenta">Fecha de venta:</label> <input type="date"
                                                            id="fechaVenta" name="fechaVenta" placeholder="">
   </div>
-  <br></br>
+  <br>
   <button type="submit">Editar menú</button>
-  <br></br>
-  <button class="cancel"
-          onclick="window.location.href='admin-menus.html'">Cancelar</button>
+  <br>
+  <button class="cancel" [routerLink]="['/admin-menus']">Cancelar</button>
 </form>
 </body>
 </html>

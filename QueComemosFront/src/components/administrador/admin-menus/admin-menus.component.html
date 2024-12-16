@@ -8,20 +8,19 @@
 <body>
 <nav>
   <div class="logo">
-    <img src="../logo-facultad.png" alt="Logo de la Facultad">
+    <img src="assets/logo-facultad.png" alt="Logo de la Facultad">
     <h2>
-      <a href="admin-home.html"
+      <a [routerLink]="['/admin-home']"
          style="color: inherit; text-decoration: none;">¿Qué comemos?</a>
     </h2>
   </div>
   <div class="profile">
-    <img src="../user.jpg" alt="Foto del Usuario">
+    <img src="assets/user.jpg" alt="Foto del Usuario">
     <p>Salir</p>
   </div>
 </nav>
 <h1>Administración de Menús</h1>
-<button class="add-menu"
-        onclick="window.location.href='admin-agregar-menu.html'">Agregar
+  <button class="add-menu" [routerLink]="['/admin-agregar-menu']">Agregar
   nuevo menú</button>
 <table>
   <tr>
@@ -42,30 +41,30 @@
     <td>
       <div class="menu-item">
         <span>Empanadita de carne</span> <img class="menu-image"
-                                              src="../imagen-no-disponible.jpeg" alt="Imagen de la entrada">
+                                              src="assets/imagen-no-disponible.jpeg" alt="Imagen de la entrada">
       </div>
     </td>
     <td>
       <div class="menu-item">
         <span>Arroz con pollo</span> <img class="menu-image"
-                                          src="../imagen-no-disponible.jpeg" alt="Imagen del plato principal">
+                                          src="assets/imagen-no-disponible.jpeg" alt="Imagen del plato principal">
       </div>
     </td>
     <td>
       <div class="menu-item">
         <span>Flan con dulce de leche</span> <img class="menu-image"
-                                                  src="../imagen-no-disponible.jpeg" alt="Imagen del postre">
+                                                  src="assets/imagen-no-disponible.jpeg" alt="Imagen del postre">
       </div>
     </td>
     <td>
       <div class="menu-item">
         <span>Coca Cola</span> <img class="menu-image"
-                                    src="../imagen-no-disponible.jpeg" alt="Imagen de la bebida">
+                                    src="assets/imagen-no-disponible.jpeg" alt="Imagen de la bebida">
       </div>
     </td>
     <td>19-sep-2024</td>
     <td>
-      <button onclick="window.location.href='admin-editar-menu.html'">Editar</button>
+      <button [routerLink]="['/admin-editar-menu']">Editar</button>
       <button>Eliminar</button>
     </td>
   </tr>

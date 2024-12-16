@@ -8,14 +8,14 @@
 <body>
 <nav>
   <div class="logo">
-    <img src="../logo-facultad.png" alt="Logo de la Facultad">
+    <img src="assets/logo-facultad.png" alt="Logo de la Facultad">
     <h2>
-      <a href="admin-home.html"
+      <a [routerLink]="['/admin-home']"
          style="color: inherit; text-decoration: none;">¿Qué comemos?</a>
     </h2>
   </div>
   <div class="profile">
-    <img src="../user.jpg" alt="Foto del Usuario">
+    <img src="assets/user.jpg" alt="Foto del Usuario">
     <p>Salir</p>
   </div>
 </nav>
@@ -34,16 +34,15 @@
     <input type="checkbox" id="esComida" name="esComida" value="Si">
     <label for="esComida">¿Se ofrece en la carta de comidas?</label>
   </div>
-  <br></br>
+
   <div class="input-group">
     <label for="fileInput">Agregar imagen (opcional)</label> <input
     type="file" id="fileInput">
   </div>
-  <br></br>
+
   <button type="submit">Agregar comida</button>
-  <br></br>
-  <button class="cancel"
-          onclick="window.location.href='admin-comidas.html'">Cancelar</button>
+
+  <button class="cancel" [routerLink]="['/admin-comidas']">Cancelar</button>
 </form>
 </body>
 </html>
