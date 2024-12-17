@@ -11,7 +11,6 @@
         <img src="assets/logo-facultad.png" alt="Logo de la Facultad" />
         <h2>
           <a
-            [routerLink]="['/usuario-home']"
             style="color: white; text-decoration: none"
             >¿Qué comemos?</a
           >
@@ -20,13 +19,16 @@
     </nav>
     <div class="center-container">
       <h1 class="center-text">Registro de Usuario</h1>
-      <form>
-        <input type="text" placeholder="Apellido" required class="full-width"/>
-        <input type="text" placeholder="Nombres" required class="full-width"/>
-        <input type="email" placeholder="Email" required class="full-width"/>
-        <input type="text" placeholder="DNI" required class="full-width"/>
-        <input type="password" placeholder="Contraseña" required class="full-width"/>
-        <input type="file" accept="image/*" class="full-width"/>
+      <form [formGroup]="formulario" (ngSubmit)="register()">
+        <input type="text" placeholder="Apellido" formControlName="apellido" required class="full-width"/>
+        <input type="text" placeholder="Nombres" formControlName="nombre" required class="full-width"/>
+        <input type="email" placeholder="Email" formControlName="email" required class="full-width"/>
+        <input type="text" placeholder="DNI" formControlName="dni" required class="full-width"/>
+        <input type="password" placeholder="Contraseña" formControlName="clave" required class="full-width"/>
+        <div>
+          <label for="foto">Foto de perfil</label>
+          <input type="file" accept="image/*" (change)="onFileSelected($event)" class="full-width"/>
+        </div>
         <button type="submit" class="full-width">Registrarse</button>
       </form>
     </div>
