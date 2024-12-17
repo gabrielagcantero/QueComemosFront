@@ -34,18 +34,18 @@
     <div class="menu-info">
       <h2>Menú No Vegetariano</h2>
       <p>
-        <strong>Entrada:</strong> Ensalada mixta
+        <strong>Entrada:</strong> {{ menuDelDia.entrada }}
       </p>
       <p>
-        <strong>Plato principal:</strong> Milanesa con puré
+        <strong>Plato principal:</strong> {{ menuDelDia.principal }}
       </p>
       <p>
-        <strong>Postre:</strong> Flan con dulce de leche
+        <strong>Postre:</strong> {{ menuDelDia.postre }}
       </p>
       <p>
-        <strong>Bebida:</strong> Gaseosa
+        <strong>Bebida:</strong> {{ menuDelDia.bebida }}
       </p>
-      <div class="menu-price">$500</div>
+      <div class="menu-price">${{ menuDelDia.precio }}</div> 
       <button>Ver detalle</button>
     </div>
     <div class="menu-actions">
@@ -64,18 +64,18 @@
     <div class="menu-info">
       <h2>Menú Vegetariano</h2>
       <p>
-        <strong>Entrada:</strong> Sopa de verduras
+        <strong>Entrada:</strong> {{ menuVeggie.entrada }}
       </p>
       <p>
-        <strong>Plato principal:</strong> Milanesa de soja con puré
+        <strong>Plato principal:</strong> {{ menuVeggie.principal }}
       </p>
       <p>
-        <strong>Postre:</strong> Ensalada de frutas
+        <strong>Postre:</strong> {{ menuVeggie.postre }}
       </p>
       <p>
-        <strong>Bebida:</strong> Jugo natural
+        <strong>Bebida:</strong> {{ menuVeggie.bebida }}
       </p>
-      <div class="menu-price">$450</div>
+      <div class="menu-price">${{ menuVeggie.precio }}</div> 
       <button>Ver detalle</button>
     </div>
     <div class="menu-actions">
@@ -93,11 +93,11 @@
 
   <h3>Entradas</h3>
 
-  <div class="carta-item">
-    <img src="assets/imagen-no-disponible.jpeg" alt="Medialunas">
+  <div class="carta-item" *ngFor="let entrada of entradas">
+    <img src="{{ entrada.imagen }}" alt="{{ entrada.nombre }}">
     <div class="carta-item-info">
-      <div class="carta-item-name">Medialunas</div>
-      <div class="carta-item-price">$50</div>
+      <div class="carta-item-name">{{ entrada.nombre }}</div>
+      <div class="carta-item-price">${{ entrada.precio }}</div>
     </div>
     <select>
       <option value="0">0</option>
@@ -108,48 +108,15 @@
       <option value="5">5</option>
     </select>
   </div>
-
-  <div class="carta-item">
-    <img src="assets/imagen-no-disponible.jpeg" alt="Café">
-    <div class="carta-item-info">
-      <div class="carta-item-name">Café</div>
-      <div class="carta-item-price">$100</div>
-    </div>
-    <select>
-      <option value="0">0</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select>
-  </div>
-
 
 
   <h3>Platos principales</h3>
 
-  <div class="carta-item">
-    <img src="assets/imagen-no-disponible.jpeg" alt="Té">
+  <div class="carta-item" *ngFor="let principal of principales">
+    <img src="{{ principal.imagen }}" alt="{{ principal.nombre }}">
     <div class="carta-item-info">
-      <div class="carta-item-name">Té</div>
-      <div class="carta-item-price">$80</div>
-    </div>
-    <select>
-      <option value="0">0</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select>
-  </div>
-
-  <div class="carta-item">
-    <img src="assets/imagen-no-disponible.jpeg" alt="Agua mineral">
-    <div class="carta-item-info">
-      <div class="carta-item-name">Agua mineral</div>
-      <div class="carta-item-price">$120</div>
+      <div class="carta-item-name">{{ principal.nombre }}</div>
+      <div class="carta-item-price">${{ principal.precio }}</div>
     </div>
     <select>
       <option value="0">0</option>
@@ -165,11 +132,12 @@
 
   <h3>Postres</h3>
 
-  <div class="carta-item">
-    <img src="assets/imagen-no-disponible.jpeg" alt="Jugo de naranja">
+  <div class="carta-item" *ngFor="let postre of postres">
+    <img src="{{ postre.imagen }}" alt={{ postre.nombre }}>
+    <!-- <img src="assets/imagen-no-disponible.jpeg" alt="{{ postre.nombre }}"> -->
     <div class="carta-item-info">
-      <div class="carta-item-name">Jugo de naranja</div>
-      <div class="carta-item-price">$150</div>
+      <div class="carta-item-name">{{ postre.nombre }}</div>
+      <div class="carta-item-price">${{ postre.precio }}</div>
     </div>
     <select>
       <option value="0">0</option>
@@ -181,31 +149,16 @@
     </select>
   </div>
 
-  <div class="carta-item">
-    <img src="assets/imagen-no-disponible.jpeg" alt="Jugo de naranja">
-    <div class="carta-item-info">
-      <div class="carta-item-name">Jugo de naranja</div>
-      <div class="carta-item-price">$150</div>
-    </div>
-    <select>
-      <option value="0">0</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select>
-  </div>
 
 
 
   <h3>Bebidas</h3>
 
-  <div class="carta-item">
-    <img src="assets/imagen-no-disponible.jpeg" alt="Jugo de naranja">
+  <div class="carta-item" *ngFor="let bebida of bebidas">
+    <img src="{{ bebida.imagen }}" alt="{{ bebida.nombre }}">
     <div class="carta-item-info">
-      <div class="carta-item-name">Jugo de naranja</div>
-      <div class="carta-item-price">$150</div>
+      <div class="carta-item-name">{{ bebida.nombre }}</div>
+      <div class="carta-item-price">${{ bebida.precio }}</div>
     </div>
     <select>
       <option value="0">0</option>
@@ -216,23 +169,6 @@
       <option value="5">5</option>
     </select>
   </div>
-
-  <div class="carta-item">
-    <img src="assets/imagen-no-disponible.jpeg" alt="Jugo de naranja">
-    <div class="carta-item-info">
-      <div class="carta-item-name">Jugo de naranja</div>
-      <div class="carta-item-price">$150</div>
-    </div>
-    <select>
-      <option value="0">0</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select>
-  </div>
-
   <div class="total">Total: ---</div>
 
 

@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';  // Necesario para el enrutamien
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet ],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   standalone: true,
   styleUrls: ['./app.component.css']
