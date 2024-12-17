@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: '../../../styles.css'
 })
 export class UsuarioRegistroComponent {
-  usuario: Usuario = new Usuario(); // Crear esta interfaz o clase
+  usuario: Usuario = new Usuario();
   formulario: FormGroup;
 
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {

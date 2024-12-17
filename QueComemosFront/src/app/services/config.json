@@ -1,0 +1,4 @@
+{
+    "registrar":"/usuarios/registrar",
+    "login":"/auth/login"
+}
