@@ -34,18 +34,18 @@
     <div class="menu-info">
       <h2>Menú No Vegetariano</h2>
       <p>
-        <strong>Entrada:</strong> Ensalada mixta
+        <strong>Entrada:</strong> {{ menuDelDia.entrada }}
       </p>
       <p>
-        <strong>Plato principal:</strong> Milanesa con puré
+        <strong>Plato principal:</strong> {{ menuDelDia.principal }}
       </p>
       <p>
-        <strong>Postre:</strong> Flan con dulce de leche
+        <strong>Postre:</strong> {{ menuDelDia.postre }}
       </p>
       <p>
-        <strong>Bebida:</strong> Gaseosa
+        <strong>Bebida:</strong> {{ menuDelDia.bebida }}
       </p>
-      <div class="menu-price">$500</div>
+      <div class="menu-price">${{ menuDelDia.precio }}</div> 
       <button>Ver detalle</button>
     </div>
     <div class="menu-actions">
@@ -64,18 +64,18 @@
     <div class="menu-info">
       <h2>Menú Vegetariano</h2>
       <p>
-        <strong>Entrada:</strong> Sopa de verduras
+        <strong>Entrada:</strong> {{ menuVeggie.entrada }}
       </p>
       <p>
-        <strong>Plato principal:</strong> Milanesa de soja con puré
+        <strong>Plato principal:</strong> {{ menuVeggie.principal }}
       </p>
       <p>
-        <strong>Postre:</strong> Ensalada de frutas
+        <strong>Postre:</strong> {{ menuVeggie.postre }}
       </p>
       <p>
-        <strong>Bebida:</strong> Jugo natural
+        <strong>Bebida:</strong> {{ menuVeggie.bebida }}
       </p>
-      <div class="menu-price">$450</div>
+      <div class="menu-price">${{ menuVeggie.precio }}</div> 
       <button>Ver detalle</button>
     </div>
     <div class="menu-actions">

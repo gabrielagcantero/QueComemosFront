@@ -1,3 +1,5 @@
+// import { Menu } from "./menu-model";
+
 export class Comida {
     nombre: string = '';
     precio: number  = 0.0;
@@ -6,6 +8,7 @@ export class Comida {
     imagen: string = '';
     vegetariano: boolean = false;
     habilitado: boolean = true;
+    // menues: Menu[] = [];
   
     constructor(
       nombre: string = '',
@@ -14,7 +17,7 @@ export class Comida {
       enCarta: boolean = false,
       imagen: string = '',
       vegetariano: boolean = false,
-      habilitado: boolean = true
+      habilitado: boolean = true,
     ) {
       this.nombre = nombre;
       this.precio = precio;
