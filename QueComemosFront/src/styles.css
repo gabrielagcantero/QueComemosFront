@@ -267,10 +267,11 @@ button {
   color: white;
   border: none;
   cursor: pointer;
+  margin-top: 10px;
 }
 
 button:hover {
-  background-color: #5f2525;
+  background-color: #7a3a3a;
 }
 
 .purchase-button-container {
@@ -355,4 +356,18 @@ button.cancel {
 
 #esComida {
   width: 30px;
+}
+
+/* Estilos agregados Pocha */
+.center-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.full-width {
+  width: 100%;
+  box-sizing: border-box; /* Ensures padding and border are included in the width */
 }
