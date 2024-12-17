@@ -17,7 +17,7 @@ import {
   UsuarioEditarPerfilComponent
 } from '../components/usuario/usuario-editar-perfil/usuario-editar-perfil.component';
 import {UsuarioHomeComponent} from '../components/usuario/usuario-home/usuario-home.component';
-import {UsuarioLoginComponent} from '../components/login/login.component';
+import {LoginComponent} from '../components/login/login.component';
 import {UsuarioMenuDelDiaComponent} from '../components/usuario/usuario-menu-del-dia/usuario-menu-del-dia.component';
 import {UsuarioRegistroComponent} from '../components/usuario/usuario-registro/usuario-registro.component';
 import {UsuarioSugerenciaComponent} from '../components/usuario/usuario-sugerencia/usuario-sugerencia.component';
@@ -56,7 +56,7 @@ const routes: Routes = [
   //INICIO USUARIOS
   { path: 'usuario-editar-perfil', component: UsuarioEditarPerfilComponent },
   { path: 'usuario-home', component: UsuarioHomeComponent },
-  { path: '', component: UsuarioLoginComponent },
+  { path: '', component: LoginComponent },
   { path: 'usuario-menu-del-dia', component: UsuarioMenuDelDiaComponent },
   { path: 'usuario-registro', component: UsuarioRegistroComponent },
   { path: 'usuario-sugerencia', component: UsuarioSugerenciaComponent },

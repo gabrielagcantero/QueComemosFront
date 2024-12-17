@@ -34,15 +34,22 @@ export class AuthService {
     return this.http.post(`${env.url}/${registrar}`, usuario);
   }
 
-  login(emailAndPass: any): Observable<any> {
-    return this.http.post<Credential>(`${env.url}${login}`, emailAndPass)
-    .pipe(map(credential => {
-      if (credential && credential.token) {
-        this.storageService.setItem('currentUser', JSON.stringify(credential));
-        this.currentUserSubject.next(credential);
-      }
-      return credential;
-    }));
+  login(loginRequest: { email: string, clave: string }): Observable<Credential> {
+    return this.http.post<any>(`${env.url}${login}`, loginRequest)
+      .pipe(map(serverResponse => {
+        // Mapeo explícito de los campos del servidor
+        const mappedCredential: Credential = {
+          token: serverResponse.token,
+          expirationInSec: serverResponse.exp,
+          email: serverResponse.username,
+          rol: serverResponse.role
+        };
+        
+        this.storageService.setItem('currentUser', JSON.stringify(mappedCredential));
+        this.currentUserSubject.next(mappedCredential);
+        
+        return mappedCredential;
+      }));
   }
 
   logout(){

@@ -24,19 +24,49 @@
         ¿Qué comemos? - Buffet Facultad de Informática
       </h1>
 
-      <form>
-        <input type="text" placeholder="Email" required class="full-width" />
-        <input
-          type="password"
-          placeholder="Contraseña"
-          required
-          class="full-width"
-        />
-        <button type="submit" class="full-width">Iniciar Sesión</button>
+      <form [formGroup]="formulario" (ngSubmit)="login()">
+        <div>
+          <input 
+            type="email" 
+            placeholder="Email" 
+            formControlName="email" 
+            class="full-width" 
+          />
+          <div *ngIf="formulario.get('email')?.invalid && (formulario.get('email')?.dirty || formulario.get('email')?.touched)" class="error-message">
+            <small *ngIf="formulario.get('email')?.errors?.['required']">
+              El email es obligatorio
+            </small>
+            <small *ngIf="formulario.get('email')?.errors?.['email']">
+              Ingrese un email válido
+            </small>
+          </div>
+        </div>
+        
+        <div>
+          <input
+            type="password"
+            placeholder="Contraseña"
+            formControlName="clave"
+            class="full-width"
+          />
+          <div *ngIf="formulario.get('clave')?.invalid && (formulario.get('clave')?.dirty || formulario.get('clave')?.touched)" class="error-message">
+            <small *ngIf="formulario.get('clave')?.errors?.['required']">
+              La contraseña es obligatoria
+            </small>
+          </div>
+        </div>
+      
+        <button 
+          type="submit" 
+          class="full-width" 
+          [disabled]="formulario.invalid"
+        >
+          Iniciar Sesión
+        </button>
       </form>
       
       <p>
-        <a href="usuario-registro.html">¿No tienes cuenta? Regístrate</a>
+        <a [routerLink]="['/usuario-registro']">¿No tienes cuenta? Regístrate</a>
       </p>
     </div>
   </body>
