@@ -3,12 +3,13 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { Router } from '@angular/router';
 import { AuthService } from '../../../app/services/auth.service';
 import { RouterModule } from '@angular/router';
-import { Usuario } from '../../../app/models/usuario-model'; // Importa la clase
+import { Usuario } from '../../../app/models/usuario-model';
+import { CommonModule } from '@angular/common'; 
 
 
 @Component({
   selector: 'app-usuario-registro',
-  imports: [ReactiveFormsModule, RouterModule],
+  imports: [ReactiveFormsModule, RouterModule, CommonModule],
   templateUrl: './usuario-registro.component.html',
   standalone: true,
   styleUrl: '../../../styles.css'
@@ -19,11 +20,28 @@ export class UsuarioRegistroComponent {
 
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.formulario = this.fb.group({
-      apellido: ['', Validators.required],
-      nombre: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      dni: ['', Validators.required],
-      clave: ['', Validators.required]
+      apellido: ['', [
+        Validators.required, 
+        Validators.pattern('^[a-zA-Z]+$')
+      ]],
+      nombre: ['', [
+        Validators.required, 
+        Validators.pattern('^[a-zA-Z]+$')
+      ]],
+      email: ['', [
+        Validators.required, 
+        Validators.email
+      ]],
+      dni: ['', [
+        Validators.required, 
+        Validators.pattern('^[0-9]*$'), // Validación de solo números
+        Validators.minLength(7),
+        Validators.maxLength(8)
+      ]],
+      clave: ['', [
+        Validators.required, 
+        Validators.minLength(6)
+      ]]
     });
     this.usuario.habilitado = true;
   }

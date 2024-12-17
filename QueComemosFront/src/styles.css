@@ -371,3 +371,18 @@ button.cancel {
   width: 100%;
   box-sizing: border-box; /* Ensures padding and border are included in the width */
 }
+
+.error-message {
+  color: red;
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

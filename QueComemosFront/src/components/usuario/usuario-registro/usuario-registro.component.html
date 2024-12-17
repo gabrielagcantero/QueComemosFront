@@ -20,16 +20,111 @@
     <div class="center-container">
       <h1 class="center-text">Registro de Usuario</h1>
       <form [formGroup]="formulario" (ngSubmit)="register()">
-        <input type="text" placeholder="Apellido" formControlName="apellido" required class="full-width"/>
-        <input type="text" placeholder="Nombres" formControlName="nombre" required class="full-width"/>
-        <input type="email" placeholder="Email" formControlName="email" required class="full-width"/>
-        <input type="text" placeholder="DNI" formControlName="dni" required class="full-width"/>
-        <input type="password" placeholder="Contraseña" formControlName="clave" required class="full-width"/>
+        <div>
+          <input 
+            type="text" 
+            placeholder="Apellido" 
+            formControlName="apellido" 
+            class="full-width"
+          />
+          <div *ngIf="formulario.get('apellido')?.invalid && (formulario.get('apellido')?.dirty || formulario.get('apellido')?.touched)" class="error-message">
+            <small *ngIf="formulario.get('apellido')?.errors?.['required']">
+              El apellido es obligatorio
+            </small>
+            <small *ngIf="formulario.get('apellido')?.errors?.['pattern']">
+              El apellido solo puede contener letras
+            </small>
+          </div>
+        </div>
+        
+        <div>
+          <input 
+            type="text" 
+            placeholder="Nombres" 
+            formControlName="nombre" 
+            class="full-width"
+          />
+          <div *ngIf="formulario.get('nombre')?.invalid && (formulario.get('nombre')?.dirty || formulario.get('nombre')?.touched)" class="error-message">
+            <small *ngIf="formulario.get('nombre')?.errors?.['required']">
+              El nombre es obligatorio
+            </small>
+            <small *ngIf="formulario.get('nombre')?.errors?.['pattern']">
+              El nombre solo puede contener letras
+            </small>
+          </div>
+        </div>
+      
+        <div>
+          <input 
+            type="email" 
+            placeholder="Email" 
+            formControlName="email" 
+            class="full-width"
+          />
+          <div *ngIf="formulario.get('email')?.invalid && (formulario.get('email')?.dirty || formulario.get('email')?.touched)" class="error-message">
+            <small *ngIf="formulario.get('email')?.errors?.['required']">
+              El email es obligatorio
+            </small>
+            <small *ngIf="formulario.get('email')?.errors?.['email']">
+              Ingrese un email válido
+            </small>
+          </div>
+        </div>
+      
+        <div>
+          <input 
+            type="text" 
+            placeholder="DNI" 
+            formControlName="dni" 
+            class="full-width"
+          />
+          <div *ngIf="formulario.get('dni')?.invalid && (formulario.get('dni')?.dirty || formulario.get('dni')?.touched)" class="error-message">
+            <small *ngIf="formulario.get('dni')?.errors?.['required']">
+              El DNI es obligatorio
+            </small>
+            <small *ngIf="formulario.get('dni')?.errors?.['pattern']">
+              El DNI no puede contener letras
+            </small>
+            <small *ngIf="!formulario.get('dni')?.errors?.['pattern'] && (formulario.get('dni')?.errors?.['minlength'] || formulario.get('dni')?.errors?.['maxlength'])">
+              El DNI debe contener entre 7 y 8 números
+            </small>
+          </div>
+        </div>
+      
+        <div>
+          <input 
+            type="password" 
+            placeholder="Contraseña" 
+            formControlName="clave" 
+            class="full-width"
+          />
+          <div *ngIf="formulario.get('clave')?.invalid && (formulario.get('clave')?.dirty || formulario.get('clave')?.touched)" class="error-message">
+            <small *ngIf="formulario.get('clave')?.errors?.['required']">
+              La contraseña es obligatoria
+            </small>
+            <small *ngIf="formulario.get('clave')?.errors?.['minlength']">
+              La contraseña debe tener al menos 6 caracteres
+            </small>
+          </div>
+        </div>
+      
         <div>
           <label for="foto">Foto de perfil</label>
-          <input type="file" accept="image/*" (change)="onFileSelected($event)" class="full-width"/>
+          <input 
+            type="file" 
+            accept="image/*" 
+            (change)="onFileSelected($event)" 
+            class="full-width"
+          />
         </div>
-        <button type="submit" class="full-width">Registrarse</button>
+      
+        <button 
+          type="submit" 
+          class="full-width" 
+          [disabled]="formulario.invalid"
+        >
+          Registrarse
+        </button>
       </form>
     </div>
   </body>
