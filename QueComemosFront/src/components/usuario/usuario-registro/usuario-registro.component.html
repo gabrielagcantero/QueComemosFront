@@ -127,6 +127,10 @@
           Registrarse
         </button>
       </form>
+
+      <p *ngIf="registerError" class="error-message">{{ registerError }}</p>
+
+
       <p>
         <a [routerLink]="['/']">¿Ya estás registrado? Iniciá sesión</a>
       </p>
