@@ -8,7 +8,7 @@ import { AdminNavbarComponent } from '../admin-navbar/admin-navbar.component';
 
 @Component({
   selector: 'app-admin-agregar-menu',
-  imports: [RouterModule, ReactiveFormsModule, AdminNavbarComponent, CommonModule, RouterLink],
+  imports: [RouterModule, ReactiveFormsModule, AdminNavbarComponent, CommonModule],
   templateUrl: './admin-agregar-menu.component.html',
   standalone: true,
   styleUrl: '../../../styles.css'

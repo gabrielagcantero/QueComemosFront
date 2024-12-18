@@ -10,11 +10,14 @@ export class MenuService {
 
   constructor(private http: HttpClient) { }
 
+  getItems(): Observable<any> {
+    return this.http.get<any>(`${env.url}/menues/listar`);
+  }
+
   getMenuDelDia(): Observable<any>{
     return this.http.get<any>(`${env.url}/menues/listar`).pipe(
       map((menues: any) => menues.filter(
         (menu: any) => menu.fecha === new Date().toISOString().split('T')[0] && menu.esVegetariano === false)));
-      
   }
 
   getMenuVeggie(): Observable<any>{

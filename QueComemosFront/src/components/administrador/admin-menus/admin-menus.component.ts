@@ -1,14 +1,24 @@
 import { Component } from '@angular/core';
 import {RouterModule} from '@angular/router';
 import { AdminNavbarComponent } from '../admin-navbar/admin-navbar.component';
+import { CommonModule } from '@angular/common';
+import { MenuService } from '../../../app/services/menu.service';
 
 
 @Component({
   selector: 'app-admin-menus',
-  imports: [RouterModule, AdminNavbarComponent],
+  imports: [RouterModule, AdminNavbarComponent, CommonModule],
+  providers: [MenuService],
   templateUrl: './admin-menus.component.html',
   styleUrl: '../../../styles.css'
 })
 export class AdminMenusComponent {
+  menues: any[] = [];
+
+  constructor(private menuService: MenuService) {}
+
+  ngOnInit() {
+    this.menuService.getItems().subscribe(data => {this.menues = data; console.log(data)});
+  }
 
 }
