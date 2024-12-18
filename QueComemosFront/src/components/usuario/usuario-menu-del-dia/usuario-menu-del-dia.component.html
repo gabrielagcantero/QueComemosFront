@@ -7,173 +7,175 @@
 </head>
 <body>
   <app-usuario-navbar></app-usuario-navbar>
-<div class="container">
-  <h1>Menú del Día</h1>
-
-  <div class="menu">
-    <div class="menu-info">
-      <h2>Menú No Vegetariano</h2>
-      <p>
-        <strong>Entrada:</strong> {{ menuDelDia.entrada }}
-      </p>
-      <p>
-        <strong>Plato principal:</strong> {{ menuDelDia.principal }}
-      </p>
-      <p>
-        <strong>Postre:</strong> {{ menuDelDia.postre }}
-      </p>
-      <p>
-        <strong>Bebida:</strong> {{ menuDelDia.bebida }}
-      </p>
-      <div class="menu-price">${{ menuDelDia.precio }}</div>
-      <div class="menu-details-button-container">
-        <button class="menu-details-button">Ver detalle</button>
+  <div class="container">
+    <h1>Menú del Día</h1>
+  
+    <div class="menu">
+      <div class="menu-info">
+        <h2>Menú No Vegetariano</h2>
+        <p>
+          <strong>Entrada:</strong> {{ menuDelDia.entrada }}
+        </p>
+        <p>
+          <strong>Plato principal:</strong> {{ menuDelDia.principal }}
+        </p>
+        <p>
+          <strong>Postre:</strong> {{ menuDelDia.postre }}
+        </p>
+        <p>
+          <strong>Bebida:</strong> {{ menuDelDia.bebida }}
+        </p>
+        <div class="menu-price">${{ menuDelDia.precio }}</div>
+        <div class="menu-details-button-container">
+          <button class="menu-details-button">Ver detalle</button>
+        </div>
+      </div>
+      <div class="menu-actions">
+        <select class="selection" (change)="updateTotal()" [(ngModel)]="menuDelDia.selectedQuantity">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
       </div>
     </div>
-    <div class="menu-actions">
-      <select class="selection">
-        <option value="0">0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
+  
+    <div class="menu">
+      <div class="menu-info">
+        <h2>Menú Vegetariano</h2>
+        <p>
+          <strong>Entrada:</strong> {{ menuVeggie.entrada }}
+        </p>
+        <p>
+          <strong>Plato principal:</strong> {{ menuVeggie.principal }}
+        </p>
+        <p>
+          <strong>Postre:</strong> {{ menuVeggie.postre }}
+        </p>
+        <p>
+          <strong>Bebida:</strong> {{ menuVeggie.bebida }}
+        </p>
+        <div class="menu-price">${{ menuVeggie.precio }}</div>
+        <div class="menu-details-button-container">
+          <button class="menu-details-button">Ver detalle</button>
+        </div>    
+      </div>
+      <div class="menu-actions">
+        <select class="selection" (change)="updateTotal()" [(ngModel)]="menuVeggie.selectedQuantity">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+    </div>
+    <br>
+    <h1>Carta Completa</h1>
+  
+    <h3>Entradas</h3>
+  
+    <div class="carta-item" *ngFor="let entrada of entradas">
+      <img src="{{ entrada.imagen }}" alt="{{ entrada.nombre }}">
+      <div class="carta-item-info">
+        <div class="carta-item-name">{{ entrada.nombre }}</div>
+        <div class="carta-item-price">${{ entrada.precio }}</div>
+      </div>
+      <div class="menu-actions">
+        <select class="selection" (change)="updateTotal()" [(ngModel)]="entrada.selectedQuantity">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+    </div>
+    <br>
+  
+  
+    <h3>Platos principales</h3>
+  
+    <div class="carta-item" *ngFor="let principal of principales">
+      <img src="{{ principal.imagen }}" alt="{{ principal.nombre }}">
+      <div class="carta-item-info">
+        <div class="carta-item-name">{{ principal.nombre }}</div>
+        <div class="carta-item-price">${{ principal.precio }}</div>
+      </div>
+      <div class="menu-actions">
+        <select class="selection" (change)="updateTotal()" [(ngModel)]="principal.selectedQuantity">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+    </div>
+    <br>
+  
+  
+  
+    <h3>Postres</h3>
+  
+    <div class="carta-item" *ngFor="let postre of postres">
+      <img src="{{ postre.imagen }}" alt="{{ postre.nombre }}">
+      <!-- <img src="assets/imagen-no-disponible.jpeg" alt="{{ postre.nombre }}"> -->
+      <div class="carta-item-info">
+        <div class="carta-item-name">{{ postre.nombre }}</div>
+        <div class="carta-item-price">${{ postre.precio }}</div>
+      </div>
+      <div class="menu-actions">
+        <select class="selection" (change)="updateTotal()" [(ngModel)]="postre.selectedQuantity">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+    </div>
+    <br>
+  
+  
+  
+  
+    <h3>Bebidas</h3>
+  
+    <div class="carta-item" *ngFor="let bebida of bebidas">
+      <img src="{{ bebida.imagen }}" alt="{{ bebida.nombre }}">
+      <div class="carta-item-info">
+        <div class="carta-item-name">{{ bebida.nombre }}</div>
+        <div class="carta-item-price">${{ bebida.precio }}</div>
+      </div>
+      <div class="menu-actions">
+        <select class="selection" (change)="updateTotal()" [(ngModel)]="bebida.selectedQuantity">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+    </div>
+    <br>
+    <div class="total">Total: {{ total | currency }}</div>
+  
+  
+    <div class="purchase-button-container">
+      <button
+        onclick="alert('¡Compra exitosa! Se te envió el QR de la compra al email registrado.')">
+        Realizar Compra</button>
     </div>
   </div>
 
-  <div class="menu">
-    <div class="menu-info">
-      <h2>Menú Vegetariano</h2>
-      <p>
-        <strong>Entrada:</strong> {{ menuVeggie.entrada }}
-      </p>
-      <p>
-        <strong>Plato principal:</strong> {{ menuVeggie.principal }}
-      </p>
-      <p>
-        <strong>Postre:</strong> {{ menuVeggie.postre }}
-      </p>
-      <p>
-        <strong>Bebida:</strong> {{ menuVeggie.bebida }}
-      </p>
-      <div class="menu-price">${{ menuVeggie.precio }}</div>
-      <div class="menu-details-button-container">
-        <button class="menu-details-button">Ver detalle</button>
-      </div>    </div>
-    <div class="menu-actions">
-      <select class="selection">
-        <option value="0">0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
-    </div>
-  </div>
-  <br>
-  <h1>Carta Completa</h1>
-
-  <h3>Entradas</h3>
-
-  <div class="carta-item" *ngFor="let entrada of entradas">
-    <img src="{{ entrada.imagen }}" alt="{{ entrada.nombre }}">
-    <div class="carta-item-info">
-      <div class="carta-item-name">{{ entrada.nombre }}</div>
-      <div class="carta-item-price">${{ entrada.precio }}</div>
-    </div>
-    <div class="menu-actions">
-      <select class="selection">
-        <option value="0">0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
-    </div>
-  </div>
-  <br>
-
-
-  <h3>Platos principales</h3>
-
-  <div class="carta-item" *ngFor="let principal of principales">
-    <img src="{{ principal.imagen }}" alt="{{ principal.nombre }}">
-    <div class="carta-item-info">
-      <div class="carta-item-name">{{ principal.nombre }}</div>
-      <div class="carta-item-price">${{ principal.precio }}</div>
-    </div>
-    <div class="menu-actions">
-      <select class="selection">
-        <option value="0">0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
-    </div>
-  </div>
-  <br>
-
-
-
-  <h3>Postres</h3>
-
-  <div class="carta-item" *ngFor="let postre of postres">
-    <img src="{{ postre.imagen }}" alt="{{ postre.nombre }}">
-    <!-- <img src="assets/imagen-no-disponible.jpeg" alt="{{ postre.nombre }}"> -->
-    <div class="carta-item-info">
-      <div class="carta-item-name">{{ postre.nombre }}</div>
-      <div class="carta-item-price">${{ postre.precio }}</div>
-    </div>
-    <div class="menu-actions">
-      <select class="selection">
-        <option value="0">0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
-    </div>
-  </div>
-  <br>
-
-
-
-
-  <h3>Bebidas</h3>
-
-  <div class="carta-item" *ngFor="let bebida of bebidas">
-    <img src="{{ bebida.imagen }}" alt="{{ bebida.nombre }}">
-    <div class="carta-item-info">
-      <div class="carta-item-name">{{ bebida.nombre }}</div>
-      <div class="carta-item-price">${{ bebida.precio }}</div>
-    </div>
-    <div class="menu-actions">
-      <select class="selection">
-        <option value="0">0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
-    </div>
-  </div>
-  <br>
-  <div class="total">Total: ---</div>
-
-
-  <div class="purchase-button-container">
-    <button
-      onclick="alert('¡Compra exitosa! Se te envió el QR de la compra al email registrado.')">
-      Realizar Compra</button>
-  </div>
-</div>
 </body>
 
 
