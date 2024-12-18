@@ -8,10 +8,10 @@
 <body>
   <app-admin-navbar></app-admin-navbar>
 <h1>Agregar nueva comida</h1>
-<form (ngSubmit)="register()">
-  <input type="text" placeholder="Nombre de la nueva comida" [(ngModel)]="comida.nombre" required>
-  <input type="text" placeholder="Precio de la nueva comida" [(ngModel)]="comida.precio" required>
-  <select [(ngModel)]="comida.categoria" required>
+<form [formGroup]="formulario" (ngSubmit)="register()">
+  <input type="text" placeholder="Nombre de la nueva comida" formControlName="nombre" required>
+  <input type="text" placeholder="Precio de la nueva comida" formControlName="precio" required>
+  <select formControlName="categoria" required>
     <option value="">Seleccione categoría</option>
     <option value="ENTRADA">Entrada</option>
     <option value="PLATO_PRINCIPAL">Plato principal</option>
@@ -19,14 +19,14 @@
     <option value="POSTRE">Postre</option>
   </select>
   <div class="row">
-    <input type="checkbox" id="enCarta" name="enCarta" value=true [(ngModel)]="comida.enCarta">
+    <input type="checkbox" id="enCarta" name="enCarta" value=true formControlName="enCarta">
     <label for="enCarta">¿Se ofrece en la carta de comidas?</label>
   </div>
   <div class="row">
-    <input type="checkbox" id="esVegetriano" name="esVegetriano" value=true [(ngModel)]="comida.vegetariano">
+    <input type="checkbox" id="esVegetriano" name="esVegetriano" value=true formControlName="vegetariano">
     <label for="esVegetriano">¿Es vegetariano?</label>
   </div>
-  <input type="text" placeholder="url de la imagen de la comida" [(ngModel)]="comida.nombre">
+  <input type="text" placeholder="url de la imagen de la comida" formControlName="imagen">
 
   <button type="submit">Agregar comida</button>
 
