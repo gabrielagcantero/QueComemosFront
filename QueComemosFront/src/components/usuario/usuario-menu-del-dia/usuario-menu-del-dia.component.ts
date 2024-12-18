@@ -4,10 +4,12 @@ import { FoodsService } from '../../../app/services/foods.service';
 import { CommonModule } from '@angular/common';
 import { MenuService } from '../../../app/services/menu.service';
 import { CategoriaComida, Comida } from '../../../app/models/comida-model';
+import { UsuarioNavbarComponent } from '../usuario-navbar/usuario-navbar.component';
+
 
 @Component({
   selector: 'app-usuario-menu-del-dia',
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule, UsuarioNavbarComponent],
   providers: [FoodsService, MenuService],
   templateUrl: './usuario-menu-del-dia.component.html',
   standalone: true,
