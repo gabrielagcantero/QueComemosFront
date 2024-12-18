@@ -19,6 +19,7 @@
     </nav>
     <div class="center-container">
       <h1 class="center-text">Registro de Usuario</h1>
+
       <form [formGroup]="formulario" (ngSubmit)="register()">
         <div>
           <input 
@@ -114,6 +115,7 @@
             accept="image/*" 
             (change)="onFileSelected($event)" 
             class="full-width"
+            formControlName="foto"
           />
         </div>
       

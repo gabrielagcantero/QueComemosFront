@@ -5,12 +5,14 @@ import { environment as env } from '../../environments/environment';
 import { StorageService } from './storage.service';
 import { registrar, login } from './config.json';
 import { map } from 'rxjs/operators';
+import { UsuarioFoto } from '../models/usuario-foto-model';
 
 export interface Credential {
   expirationInSec: number;
   token: string;
   email: string;
   rol: string;
+  id: number;
 }
 
 @Injectable({
@@ -42,7 +44,8 @@ export class AuthService {
           token: serverResponse.token,
           expirationInSec: serverResponse.exp,
           email: serverResponse.username,
-          rol: serverResponse.role
+          rol: serverResponse.role,
+          id: serverResponse.userid
         };
         
         this.storageService.setItem('currentUser', JSON.stringify(mappedCredential));
@@ -61,10 +64,7 @@ export class AuthService {
     return this.currentUserValue !== null;
   }
 
-  isLoggedAsAdmin(): boolean {
-    if (this.isLoggedIn()) {
-      return this.currentUserValue.rol === 'ADMINISTRADOR';
-    }
-    return false;
+  getUsuario() {
+    return this.http.get<UsuarioFoto>(`${env.url}/usuarios/${this.currentUserValue.id}`);
   }
 }

@@ -14,7 +14,7 @@
 
   <div class="profile">
     <a [routerLink]="['/usuario-editar-perfil']">
-      <img src="assets/user.jpg" alt="Foto del Usuario" />
+      <img [src]="fotoDePerfil" alt="Foto del Usuario" />
     </a>
     <h4>
       <a href="#" (click)="logout()" style="color: white; text-decoration: none"
