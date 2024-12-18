@@ -67,7 +67,7 @@ export const routes: Routes = [
   { path: 'admin-agregar-menu', component: AdminAgregarMenuComponent },
   { path: 'admin-agergar-usuario', component: AdminAgregarUsuarioComponent },
   { path: 'admin-comidas', component: AdminComidasComponent },
-  { path: 'admin-editar-comida', component: AdminEditarComidaComponent },
+  { path: 'admin-editar-comida/:id', component: AdminEditarComidaComponent },
   { path: 'admin-editar-menu', component: AdminEditarMenuComponent },
   { path: 'admin-editar-usuario', component: AdminEditarUsuarioComponent },
   { path: 'admin-estadisticas', component: AdminEstadisticasComponent },

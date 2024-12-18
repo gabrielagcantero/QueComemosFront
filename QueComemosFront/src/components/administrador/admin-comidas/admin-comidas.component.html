@@ -28,7 +28,7 @@
     </td>
     <td>{{ comida.categoria }}</td>
     <td>
-      <button [routerLink]="['/admin-editar-comida']">Editar</button>
+      <button [routerLink]="['/admin-editar-comida', comida.id]">Editar</button>
       <button>Eliminar</button>
     </td>
   </tr>

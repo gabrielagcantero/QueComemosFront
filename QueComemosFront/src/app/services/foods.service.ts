@@ -15,6 +15,10 @@ export class FoodsService {
     return this.http.get<any>(`${env.url}/comidas/listar`);
   }
 
+  getComidaById(id: string): Observable<any> {
+    return this.getItems().pipe(map((comidas: any) => comidas.find((comida: any) => comida.id === id)));
+  }
+
   getEntradas(): Observable<any>{
     return this.getItems().pipe(map((comidas: any) => comidas.filter((comida: any) => comida.categoria === 'ENTRADA')));
   }
