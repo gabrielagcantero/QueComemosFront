@@ -34,4 +34,8 @@ export class FoodsService {
   register(comida: any): Observable<any> {
     return this.http.post(`${env.url}/comidas/registrar`, comida, { responseType: 'text' });
   }
+
+  update(comida: any): Observable<any> {
+    return this.http.put(`${env.url}/comidas/editar`, comida, { responseType: 'text' });
+  }
 }
