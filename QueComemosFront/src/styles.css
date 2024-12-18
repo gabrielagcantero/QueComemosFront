@@ -415,3 +415,21 @@ selection:focus {
   border-color: #5f2525;
   box-shadow: 0 0 5px rgb(95, 37, 37);
 }
+
+.menu-details-button {
+  width: 200px; /* Ajusta el ancho según tus necesidades */
+  padding: 15px; /* Ajusta el relleno según tus necesidades */
+}
+
+.menu-details-button-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 5px;
+}
+
+.purchase-button-container button {
+  width: 400px; /* Ajusta el ancho según tus necesidades */
+  padding: 20px; /* Ajusta el relleno según tus necesidades */
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
