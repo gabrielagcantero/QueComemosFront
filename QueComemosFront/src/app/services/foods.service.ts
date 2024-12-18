@@ -32,6 +32,6 @@ export class FoodsService {
   }
 
   register(comida: any): Observable<any> {
-    return this.http.post(`${env.url}/comidas/registrar`, comida);
+    return this.http.post(`${env.url}/comidas/registrar`, comida, { responseType: 'text' });
   }
 }
