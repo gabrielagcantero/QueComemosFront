@@ -1,24 +1,4 @@
-<nav>
-  <div class="logo">
-    <a [routerLink]="['/admin-home']">
-    <img src="assets/logo-facultad.png" alt="Logo de la Facultad">
-    </a>
-    <h2>
-    <a [routerLink]="['/admin-home']"
-       style="color: white; text-decoration: none;">¿Qué comemos?</a>
-    </h2>
-  </div>
-  
-  <div class="profile">
-    <a [routerLink]="['/admin-editar-perfil']">
-      <img src="assets/user.jpg" alt="Foto del Usuario">
-    </a>
-    <h4>
-    <a [routerLink]="['/admin-editar-perfil']"
-       style="color: white; text-decoration: none;">Salir</a>
-    </h4>
-  </div>
-  </nav>
+<app-admin-navbar></app-admin-navbar>
 <h1>Panel de Administración General</h1>
 <div class="buttons">
   <button [routerLink]="['/admin-menus']">Administrar Menús</button>
@@ -27,4 +7,3 @@
   <button [routerLink]="['/admin-estadisticas']">Ver Estadísticas</button>
   <button [routerLink]="['/admin-usuarios']">Administrar Usuarios</button>
 </div>
-
