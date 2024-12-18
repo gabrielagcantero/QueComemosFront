@@ -10,8 +10,7 @@
   <div class="logo">
     <img src="assets/logo-facultad.png" alt="Logo de la Facultad">
     <h2>
-      <a [routerLink]="['/admin-home']"
-         style="color: inherit; text-decoration: none;">¿Qué comemos?</a>
+      <a [routerLink]="['/admin-home']" style="color: inherit; text-decoration: none;">¿Qué comemos?</a>
     </h2>
   </div>
   <div class="profile">
@@ -20,46 +19,59 @@
   </div>
 </nav>
 <h1>Agregar nuevo menú</h1>
-<form>
-  <input type="text" placeholder="Nombre del menú" required><br>
-  <input type="text" placeholder="Precio del menú"><br>
-  <select
-    required>
+<form (ngSubmit)="submitForm()">
+  <!-- Nombre del menú -->
+  <label for="nombre">Nombre del menú:</label>
+  <input type="text" id="nombre" [(ngModel)]="menu.nombre" name="nombre" required />
+
+  <!-- Precio del menú -->
+  <label for="precio">Precio del menú:</label>
+  <input type="number" id="precio" [(ngModel)]="menu.precio" name="precio" required />
+
+  <!-- Entrada -->
+  <label for="entradaId">Entrada:</label>
+  <select [(ngModel)]="menu.entradaId" id="entradaId" name="entradaId" required>
     <option value="">Seleccione tipo Entrada</option>
-    <option value="alimentos">Empanada</option>
-    <option value="infraestructura">Arrollado primavera</option>
+    <option *ngFor="let entrada of entradas" [value]="entrada.id">{{ entrada.nombre }}</option>
   </select>
-  <select
-    required>
-    <option value="">Seleccione tipo de Plato Principal</option>
-    <option value="alimentos">Pollo</option>
-    <option value="infraestructura">Milanesa con puré</option>
+
+  <!-- Plato Principal -->
+  <label for="platoPrincipalId">Plato Principal:</label>
+  <select [(ngModel)]="menu.platoPrincipalId" id="platoPrincipalId" name="platoPrincipalId" required>
+    <option value="">Seleccione tipo Plato Principal</option>
+    <option *ngFor="let principal of principales" [value]="principal.id">{{ principal.nombre }}</option>
   </select>
-  <select
-    required>
-    <option value="">Seleccione tipo de Bebida</option>
-    <option value="alimentos">Agua</option>
-    <option value="infraestructura">Gaseosa</option>
+
+  <!-- Bebida -->
+  <label for="bebidaId">Bebida:</label>
+  <select [(ngModel)]="menu.bebidaId" id="bebidaId" name="bebidaId" required>
+    <option value="">Seleccione tipo Bebida</option>
+    <option *ngFor="let bebida of bebidas" [value]="bebida.id">{{ bebida.nombre }}</option>
   </select>
-  <select
-    required>
-    <option value="">Seleccione tipo de Postre</option>
-    <option value="alimentos">Flan</option>
-    <option value="infraestructura">Helado</option>
+
+  <!-- Postre -->
+  <label for="postreId">Postre:</label>
+  <select [(ngModel)]="menu.postreId" id="postreId" name="postreId" required>
+    <option value="">Seleccione tipo Postre</option>
+    <option *ngFor="let postre of postres" [value]="postre.id">{{ postre.nombre }}</option>
   </select>
+
+  <!-- Es vegetariano -->
   <div class="checkbox-vegie">
-    <input type="checkbox" id="vegetariano" name="vegetariano" value="Si">
-    <label for="vegetariano">¿Es vegetariano?</label> <br>
+    <input type="checkbox" id="vegetariano" name="vegetariano" [(ngModel)]="menu.esVegetariano" />
+    <label for="vegetariano">¿Es vegetariano?</label>
   </div>
-  <br>
+
+  <!-- Fecha de venta -->
   <div class="fecha-venta">
-    <label for="fechaVenta">Fecha de venta:</label> <input type="date"
-                                                           id="fechaVenta" name="fechaVenta" placeholder="">
+    <label for="fecha">Fecha de venta:</label>
+    <input type="date" id="fecha" [(ngModel)]="menu.fecha" name="fecha" required />
   </div>
-  <br>
+
+  <!-- Botones -->
   <button type="submit">Agregar menú</button>
-  <br>
   <button class="cancel" [routerLink]="['/admin-menus']">Cancelar</button>
 </form>
+
 </body>
 </html>

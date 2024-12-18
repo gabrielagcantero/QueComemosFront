@@ -226,7 +226,7 @@ form {
   max-width: 300px;
   margin: auto;
 }
-textarea {
+select, textarea {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
@@ -386,7 +386,7 @@ button:disabled {
   cursor: not-allowed;
 }
 
-select {
+selection {
   padding: 0px;
   font-size: 14px;
   width: 50px;
@@ -400,11 +400,11 @@ select {
   cursor: pointer;
 }
 
-select:hover {
+selection:hover {
   border-color: #5f2525;
 }
 
-select:focus {
+selection:focus {
   outline: none;
   border-color: #5f2525;
   box-shadow: 0 0 5px rgb(95, 37, 37);

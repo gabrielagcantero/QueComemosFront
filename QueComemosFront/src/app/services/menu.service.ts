@@ -21,4 +21,10 @@ export class MenuService {
       map((menues: any) => menues.filter(
         (menu: any) => menu.fecha === new Date().toISOString().split('T')[0] && menu.esVegetariano === true)));
   }
+
+  register(menu: any): Observable<any> {
+    return this.http.post(`${env.url}/menues/registrar`, menu, { responseType: 'text' });
+  }
+
+
 }
