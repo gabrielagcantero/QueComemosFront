@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {RouterModule} from '@angular/router';
+import {Router, RouterModule} from '@angular/router';
 import { AuthService } from '../../../app/services/auth.service';
+import { UsuarioNavbarComponent } from '../usuario-navbar/usuario-navbar.component';
 
 @Component({
   selector: 'app-usuario-home',
-  imports: [RouterModule],
+  imports: [RouterModule, UsuarioNavbarComponent],
   templateUrl: './usuario-home.component.html',
   standalone: true,
   styleUrl: '../../../styles.css'
@@ -12,7 +13,7 @@ import { AuthService } from '../../../app/services/auth.service';
 export class UsuarioHomeComponent implements OnInit {
   email: string | null = null;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   
@@ -20,5 +21,10 @@ export class UsuarioHomeComponent implements OnInit {
     if (currentUser) {
       this.email = currentUser.email;
     }
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/']);
   }
 }

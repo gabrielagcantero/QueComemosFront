@@ -38,43 +38,15 @@
     <th>Categoría</th>
     <th>Acciones</th>
   </tr>
-  <tr>
-    <td>Empanadas</td>
-    <td>$500</td>
+  <tr *ngFor="let comida of comidas">
+    <td>{{ comida.nombre }}</td>
+    <td>${{ comida.precio }}</td>
     <td>
       <div class="menu-item">
-        <img class="menu-image" src="assets/imagen-no-disponible.jpeg" alt="Imagen de empanadas">
+        <img class="menu-image" src="{{ comida.imagen }}" alt="{{ comida.nombre }}">
       </div>
     </td>
-    <td>Entrada</td>
-    <td>
-      <button [routerLink]="['/admin-editar-comida']">Editar</button>
-      <button>Eliminar</button>
-    </td>
-  </tr>
-  <tr>
-    <td>Tarta</td>
-    <td>$1500</td>
-    <td>
-      <div class="menu-item">
-        <img class="menu-image" src="assets/imagen-no-disponible.jpeg" alt="Imagen de tarta">
-      </div>
-    </td>
-    <td>Plato principal</td>
-    <td>
-      <button [routerLink]="['/admin-editar-comida']">Editar</button>
-      <button>Eliminar</button>
-    </td>
-  </tr>
-  <tr>
-    <td>Sandwiches</td>
-    <td>$1500</td>
-    <td>
-      <div class="menu-item">
-        <img class="menu-image" src="assets/imagen-no-disponible.jpeg" alt="Imagen de sandwiches">
-      </div>
-    </td>
-    <td>Plato principal</td>
+    <td>{{ comida.categoria }}</td>
     <td>
       <button [routerLink]="['/admin-editar-comida']">Editar</button>
       <button>Eliminar</button>
