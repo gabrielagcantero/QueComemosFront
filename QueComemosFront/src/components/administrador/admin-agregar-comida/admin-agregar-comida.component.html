@@ -8,25 +8,25 @@
 <body>
   <app-admin-navbar></app-admin-navbar>
 <h1>Agregar nueva comida</h1>
-<form>
-  <input type="text" placeholder="Nombre de la nueva comida" required>
-  <input type="text" placeholder="Precio de la nueva comida" required>
-  <select required>
+<form [formGroup]="formulario" (ngSubmit)="register()">
+  <input type="text" placeholder="Nombre de la nueva comida" formControlName="nombre" required>
+  <input type="text" placeholder="Precio de la nueva comida" formControlName="precio" required>
+  <select formControlName="categoria" required>
     <option value="">Seleccione categoría</option>
-    <option value="alimentos">Entrada</option>
-    <option value="infraestructura">Plato principal</option>
-    <option value="servicios">Bebida</option>
-    <option value="otros">Postre</option>
+    <option value="ENTRADA">Entrada</option>
+    <option value="PLATO_PRINCIPAL">Plato principal</option>
+    <option value="BEBIDA">Bebida</option>
+    <option value="POSTRE">Postre</option>
   </select>
-  <div class="checkbox-esComida">
-    <input type="checkbox" id="esComida" name="esComida" value="Si">
-    <label for="esComida">¿Se ofrece en la carta de comidas?</label>
+  <div class="row">
+    <input type="checkbox" id="enCarta" name="enCarta" value=true formControlName="enCarta">
+    <label for="enCarta">¿Se ofrece en la carta de comidas?</label>
   </div>
-
-  <div class="input-group">
-    <label for="fileInput">Agregar imagen (opcional)</label> <input
-    type="file" id="fileInput">
+  <div class="row">
+    <input type="checkbox" id="esVegetriano" name="esVegetriano" value=true formControlName="vegetariano">
+    <label for="esVegetriano">¿Es vegetariano?</label>
   </div>
+  <input type="text" placeholder="url de la imagen de la comida" formControlName="imagen">
 
   <button type="submit">Agregar comida</button>
 
