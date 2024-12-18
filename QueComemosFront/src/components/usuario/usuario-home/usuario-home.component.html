@@ -8,22 +8,24 @@
 <body>
 <nav>
   <div class="logo">
-    <img src="assets/logo-facultad.png" alt="Logo de la Facultad">
+    <a [routerLink]="['/usuario-home']">
+      <img src="assets/logo-facultad.png" alt="Logo de la Facultad">
+    </a>
     <h2>
       <a [routerLink]="['/usuario-home']"
          style="color: white; text-decoration: none;">¿Qué comemos?</a>
     </h2>
   </div>
+
   <div class="profile">
-    <img src="assets/user.jpg" alt="Foto del Usuario">
-    <div class="dropdown">
-      <button class="dropbtn">Mi Perfil</button>
-      <div class="dropdown-content">
-        <button [routerLink]="['/usuario-editar-perfil']">Editar Perfil</button> <a
-        href="logout.html">Salir</a>
-      </div>
-    </div>
-  </div>
+    <a [routerLink]="['/usuario-editar-perfil']">
+        <img src="assets/user.jpg" alt="Foto del Usuario">
+    </a>
+    <h4>
+      <a [routerLink]="['/usuario-editar-perfil']"
+         style="color: white; text-decoration: none;">Salir</a>
+    </h4>
+</div>
 </nav>
 <h1>Bienvenido, {{ email }}</h1>
 <div class="buttons">

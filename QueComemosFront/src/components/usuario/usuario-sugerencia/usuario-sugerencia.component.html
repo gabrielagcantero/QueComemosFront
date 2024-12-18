@@ -6,25 +6,27 @@
   <title>Sugerencias - ¿Qué comemos?</title>
 </head>
 <body>
-<nav>
-  <div class="logo">
-    <img src="assets/logo-facultad.png" alt="Logo de la Facultad">
-    <h2>
-      <a [routerLink]="['/usuario-home']"
-         style="color: inherit; text-decoration: none;">¿Qué comemos?</a>
-    </h2>
-  </div>
-  <div class="profile">
-    <img src="assets/user.jpg" alt="Foto del Usuario">
-    <div class="dropdown">
-      <button class="dropbtn">Mi Perfil</button>
-      <div class="dropdown-content">
-        <button [routerLink]="['/usuario-editar-perfil']">Editar Perfil</button> <a
-        href="logout.html">Salir</a>
-      </div>
+  <nav>
+    <div class="logo">
+      <a [routerLink]="['/usuario-home']">
+        <img src="assets/logo-facultad.png" alt="Logo de la Facultad">
+      </a>
+      <h2>
+        <a [routerLink]="['/usuario-home']"
+           style="color: white; text-decoration: none;">¿Qué comemos?</a>
+      </h2>
     </div>
+  
+    <div class="profile">
+      <a [routerLink]="['/usuario-editar-perfil']">
+          <img src="assets/user.jpg" alt="Foto del Usuario">
+      </a>
+      <h4>
+        <a [routerLink]="['/usuario-editar-perfil']"
+           style="color: white; text-decoration: none;">Salir</a>
+      </h4>
   </div>
-</nav>
+  </nav>
 <h1>Buzón de Sugerencias</h1>
 <form>
   <select required>
