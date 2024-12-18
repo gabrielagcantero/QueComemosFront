@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { AdminNavbarComponent } from '../admin-navbar/admin-navbar.component';
+
 import { FormsModule} from '@angular/forms';
 import {Router, RouterModule} from '@angular/router';
 import { FoodsService } from '../../../app/services/foods.service';
@@ -7,7 +9,7 @@ import { CategoriaComida } from '../../../app/models/comida-model';
 
 @Component({
   selector: 'app-admin-agregar-comida',
-  imports: [FormsModule, RouterModule, CommonModule],
+  imports: [RouterModule, AdminNavbarComponent, FormsModule, CommonModule],
   templateUrl: './admin-agregar-comida.component.html',
   styleUrl: '../../../styles.css'
 })

@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';  // Importa RouterModule aquí
+import { RouterModule } from '@angular/router';
+import { ResponsableNavbarComponent } from '../responsable-navbar/responsable-navbar.component';
+
 
 @Component({
   selector: 'app-responsable-usuarios',
-  imports: [RouterModule],  // Importa RouterModule en el componente standalone
+  imports: [RouterModule, ResponsableNavbarComponent],
   templateUrl: './responsable-usuarios.component.html',
   standalone: true,
   styleUrls: ['../../../styles.css']
 })
 export class ResponsableUsuariosComponent {
-  // Tu código aquí
+
 }

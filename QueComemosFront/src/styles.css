@@ -371,6 +371,12 @@ button.cancel {
   box-sizing: border-box; /* Ensures padding and border are included in the width */
 }
 
+.error {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
 .error-message {
   color: red;
   font-size: 0.8em;
