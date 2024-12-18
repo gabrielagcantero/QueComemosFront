@@ -19,6 +19,7 @@ import {
 })
 export class LoginComponent {
   formulario: FormGroup;
+  loginError: string | null = null;
 
   constructor(
     private authService: AuthService,
@@ -38,6 +39,7 @@ export class LoginComponent {
       this.authService.login({ email, clave }).subscribe({
         next: (response) => {
           console.log('Usuario logueado exitosamente');
+          this.loginError = null;
           if (response.rol === 'Usuario') {
             this.router.navigate(['/usuario-home']);
           } else if (response.rol === 'Administrador') {
@@ -49,6 +51,9 @@ export class LoginComponent {
           }
         },
         error: (error) => {
+          if (error.status === 401) {
+            this.loginError = 'Usuario o contraseña incorrectos';
+          }
           console.error('Error al loguear usuario', error);
         },
       });

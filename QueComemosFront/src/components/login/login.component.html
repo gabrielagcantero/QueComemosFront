@@ -64,6 +64,9 @@
           Iniciar Sesión
         </button>
       </form>
+
+      <p *ngIf="loginError" class="error-message">{{ loginError }}</p>
+
       
       <p>
         <a [routerLink]="['/usuario-registro']">¿No tienes cuenta? Regístrate</a>
