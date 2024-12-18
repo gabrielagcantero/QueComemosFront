@@ -14,24 +14,26 @@ import { CommonModule } from '@angular/common';
   styleUrl: '../../../styles.css'
 })
 export class AdminEditarComidaComponent {
-  formulario: FormGroup;
+  formulario!: FormGroup;
   foodData: any = {};
   id = 0;
 
   constructor(private fb: FormBuilder, private foodsService: FoodsService, private route: ActivatedRoute, private router: Router) {
     
-    this.foodsService.getComidaById(this.route.snapshot.params['id']).subscribe(data => { this.foodData = data; console.log(this.foodData);});
+    this.foodsService.getComidaById(this.route.snapshot.params['id']).subscribe(data => {
+      this.foodData = data;
 
-    // Inicialización del formulario con validadores
-    this.formulario = this.fb.group({
-      nombre: [this.foodData.nombre, Validators.required],
-      precio: [this.foodData.precio , [Validators.required, Validators.min(0)]],
-      categoria: [this.foodData.categoria, Validators.required],
-      enCarta: [this.foodData.enCarta],
-      imagen: [this.foodData.imagen, Validators.required],
-      vegetariano: [this.foodData.vegetariano],
-      habilitado: [this.foodData.habilitado],
-      menus: [this.foodData.menus]
+      // Inicialización del formulario con validadores
+      this.formulario = this.fb.group({
+        nombre: [this.foodData.nombre, Validators.required],
+        precio: [this.foodData.precio , [Validators.required, Validators.min(0)]],
+        categoria: [this.foodData.categoria, Validators.required],
+        enCarta: [this.foodData.enCarta],
+        imagen: [this.foodData.imagen, Validators.required],
+        vegetariano: [this.foodData.vegetariano],
+        habilitado: [this.foodData.habilitado],
+        menus: [this.foodData.menus]
+      });
     });
   }
 
@@ -51,6 +53,8 @@ export class AdminEditarComidaComponent {
         habilitado: true,
         menus: formData.menus
       }
+
+    
 
       this.foodsService.update(data).subscribe(
         response => {
