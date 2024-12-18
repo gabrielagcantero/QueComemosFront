@@ -12,18 +12,18 @@
   <input type="text" [value]="foodData.nombre" formControlName="nombre" required>
   <input type="text" [value]="foodData.precio" formControlName="precio" required>
   <select formControlName="categoria" required>
-    <option value="" selected>Seleccione categoría</option>
-    <option value="ENTRADA">Entrada</option>
-    <option value="PLATO_PRINCIPAL">Plato principal</option>
-    <option value="BEBIDA">Bebida</option>
-    <option value="POSTRE">Postre</option>
+    <option value="" disabled>Seleccione categoría</option>
+    <option value="ENTRADA" [selected]="foodData.categoria === 'ENTRADA'">Entrada</option>
+    <option value="PLATO_PRINCIPAL" [selected]="foodData.categoria === 'PLATO_PRINCIPAL'">Plato principal</option>
+    <option value="BEBIDA" [selected]="foodData.categoria === 'BEBIDA'">Bebida</option>
+    <option value="POSTRE" [selected]="foodData.categoria === 'POSTRE'">Postre</option>
   </select>
   <div class="row">
-    <input type="checkbox" id="enCarta" name="enCarta" value=true formControlName="enCarta">
+    <input type="checkbox" id="enCarta" name="enCarta" [checked]="foodData.enCarta" value=true formControlName="enCarta">
     <label for="enCarta">¿Se ofrece en la carta de comidas?</label>
   </div>
   <div class="row">
-    <input type="checkbox" id="esVegetriano" name="esVegetriano" value=true formControlName="vegetariano">
+    <input type="checkbox" id="esVegetriano" name="esVegetriano" [checked]="foodData.esVegetariano" value=true formControlName="vegetariano">
     <label for="esVegetriano">¿Es vegetariano?</label>
   </div>
   <input type="text" [value]="foodData.imagen" formControlName="imagen">
