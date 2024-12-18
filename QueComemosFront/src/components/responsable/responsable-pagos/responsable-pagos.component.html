@@ -6,25 +6,27 @@
   <title>Registro de Pagos - ¿Qué comemos?</title>
 </head>
 <body>
-<nav>
-  <div class="logo">
-    <img src="assets/logo-facultad.png" alt="Logo de la Facultad">
-    <h2>
-      <a [routerLink]="['/responsable-home']"
-         style="color: inherit; text-decoration: none;">¿Qué comemos?</a>
-    </h2>
-  </div>
-  <div class="profile">
-    <img src="assets/user.jpg" alt="Foto del Usuario">
-    <div class="dropdown">
-      <button class="dropbtn">Mi Perfil</button>
-      <div class="dropdown-content">
-        <button [routerLink]="['/responsable-editar-perfil']">Editar Perfil</button> <a
-        href="logout.html">Salir</a>
-      </div>
-    </div>
-  </div>
-</nav>
+  <nav>
+		<div class="logo">
+		  <a [routerLink]="['/responsable-home']">
+			<img src="assets/logo-facultad.png" alt="Logo de la Facultad">
+		  </a>
+		  <h2>
+			<a [routerLink]="['/responsable-home']"
+			   style="color: white; text-decoration: none;">¿Qué comemos?</a>
+		  </h2>
+		</div>
+	  
+		<div class="profile">
+		  <a [routerLink]="['/responsable-editar-perfil']">
+			  <img src="assets/user.jpg" alt="Foto del Usuario">
+		  </a>
+		  <h4>
+			<a [routerLink]="['/responsable-editar-perfil']"
+			   style="color: white; text-decoration: none;">Salir</a>
+		  </h4>
+	  </div>
+	  </nav>
 <h1>Registro de Pagos</h1>
   <button class="add-pago" [routerLink]="['/responsable-agregar-pago']">Agregar nuevo pago</button>
 <table>
