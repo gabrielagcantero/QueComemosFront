@@ -22,35 +22,42 @@
     <th>Fecha de Venta</th>
     <th>Acciones</th>
   </tr>
-  <tr>
-    <td>Menú Ejecutivo</td>
-    <td>No Vegetariano</td>
-    <td>$1500</td>
+  <tr *ngFor="let menu of menues">
+    <td>{{ menu.nombre }}</td>
+    <td *ngIf="menu.vegetariano;else noVeggie">Sí</td>
+    <ng-template #noVeggie>
+      <td>No</td>
+    </ng-template>
+    <td>${{ menu.precio }}</td>
     <td>
-      <div class="menu-item">
-        <span>Empanadita de carne</span> <img class="menu-image"
-                                              src="assets/imagen-no-disponible.jpeg" alt="Imagen de la entrada">
+      <div *ngFor="let comida of menu.comidas">
+        <div class="menu-item" *ngIf="comida.categoria == 'ENTRADA'">
+          <span>{{ comida.nombre }}</span> <img class="menu-image" src="{{ comida.imagen }}" alt="Imagen de la entrada">
+        </div>
       </div>
     </td>
     <td>
-      <div class="menu-item">
-        <span>Arroz con pollo</span> <img class="menu-image"
-                                          src="assets/imagen-no-disponible.jpeg" alt="Imagen del plato principal">
+      <div *ngFor="let comida of menu.comidas">
+        <div class="menu-item" *ngIf="comida.categoria == 'PLATO_PRINCIPAL'">
+          <span>{{ comida.nombre }}</span> <img class="menu-image" src="{{ comida.imagen }}" alt="Imagen del plato principal">
+        </div>
       </div>
     </td>
     <td>
-      <div class="menu-item">
-        <span>Flan con dulce de leche</span> <img class="menu-image"
-                                                  src="assets/imagen-no-disponible.jpeg" alt="Imagen del postre">
+      <div *ngFor="let comida of menu.comidas">
+        <div class="menu-item" *ngIf="comida.categoria == 'POSTRE'">
+          <span>{{ comida.nombre }}</span> <img class="menu-image" src="{{ comida.imagen }}" alt="Imagen del postre">
+        </div>
       </div>
     </td>
     <td>
-      <div class="menu-item">
-        <span>Coca Cola</span> <img class="menu-image"
-                                    src="assets/imagen-no-disponible.jpeg" alt="Imagen de la bebida">
+      <div *ngFor="let comida of menu.comidas">
+        <div class="menu-item" *ngIf="comida.categoria == 'BEBIDA'">
+          <span>{{ comida.nombre }}</span> <img class="menu-image" src="{{ comida.imagen }}" alt="Imagen de la bebida">
+        </div>
       </div>
     </td>
-    <td>19-sep-2024</td>
+    <td>{{ menu.fecha }}</td>
     <td>
       <button [routerLink]="['/admin-editar-menu']">Editar</button>
       <button>Eliminar</button>
