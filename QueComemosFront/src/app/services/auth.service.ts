@@ -31,7 +31,7 @@ export class AuthService {
 }
 
   register(usuario: any): Observable<any> {
-    return this.http.post(`${env.url}/${registrar}`, usuario);
+    return this.http.post(`${env.url}${registrar}`, usuario);
   }
 
   login(loginRequest: { email: string, clave: string }): Observable<Credential> {
