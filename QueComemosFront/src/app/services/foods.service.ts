@@ -16,7 +16,7 @@ export class FoodsService {
   }
 
   getComidaById(id: string): Observable<any> {
-    return this.getItems().pipe(map((comidas: any) => comidas.find((comida: any) => comida.id === id)));
+    return this.getItems().pipe(map((comidas: any) => comidas.find((comida: any) => comida.id === Number(id))));
   }
 
   getEntradas(): Observable<any>{
