@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import {Router, RouterLink} from '@angular/router';
+import {Router, RouterLink, RouterModule} from '@angular/router';
 import { FoodsService } from '../../../app/services/foods.service';
 import { MenuService } from '../../../app/services/menu.service';
 import { CommonModule } from '@angular/common';
+import { AdminNavbarComponent } from '../admin-navbar/admin-navbar.component';
 
 @Component({
   selector: 'app-admin-agregar-menu',
-  imports: [ReactiveFormsModule, CommonModule, RouterLink],
+  imports: [RouterModule, ReactiveFormsModule, AdminNavbarComponent, CommonModule, RouterLink],
   templateUrl: './admin-agregar-menu.component.html',
   standalone: true,
   styleUrl: '../../../styles.css'

@@ -6,27 +6,7 @@
 <title>Panel de Responsable de Turno - ¿Qué comemos?</title>
 </head>
 <body>
-	<nav>
-		<div class="logo">
-		  <a [routerLink]="['/responsable-home']">
-			<img src="assets/logo-facultad.png" alt="Logo de la Facultad">
-		  </a>
-		  <h2>
-			<a [routerLink]="['/responsable-home']"
-			   style="color: white; text-decoration: none;">¿Qué comemos?</a>
-		  </h2>
-		</div>
-	  
-		<div class="profile">
-		  <a [routerLink]="['/responsable-editar-perfil']">
-			  <img src="assets/user.jpg" alt="Foto del Usuario">
-		  </a>
-		  <h4>
-			<a [routerLink]="['/responsable-editar-perfil']"
-			   style="color: white; text-decoration: none;">Salir</a>
-		  </h4>
-	  </div>
-	  </nav>
+	<app-responsable-navbar></app-responsable-navbar>
 	<h1>Panel de Responsable de Turno</h1>
 	<div class="buttons">
     <button [routerLink]="['/responsable-usuarios']">Usuarios Habilitados</button>

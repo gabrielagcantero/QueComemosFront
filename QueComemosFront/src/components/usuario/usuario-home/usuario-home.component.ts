@@ -22,9 +22,4 @@ export class UsuarioHomeComponent implements OnInit {
       this.email = currentUser.email;
     }
   }
-
-  logout() {
-    this.authService.logout();
-    this.router.navigate(['/']);
-  }
 }
