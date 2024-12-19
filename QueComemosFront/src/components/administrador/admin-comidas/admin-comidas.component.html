@@ -14,15 +14,15 @@
 
 <table class="comidas-table">
   <tr>
-    <th class="col-nombre">Nombre</th>
-    <th class="col-precio">Precio</th>
+    <th class="col-nombre-comida">Nombre</th>
+    <th class="col-precio-comida">Precio</th>
     <th class="col-imagen">Imagen</th>
     <th class="col-categoria">Categoría</th>
     <th class="col-acciones">Acciones</th>
   </tr>
   <tr *ngFor="let comida of comidas">
-    <td class="col-nombre">{{ comida.nombre }}</td>
-    <td class="col-precio">${{ comida.precio }}</td>
+    <td class="col-nombre-comida">{{ comida.nombre }}</td>
+    <td class="col-precio-comida">${{ comida.precio }}</td>
     <td class="col-imagen">
       <div class="menu-item">
         <img class="menu-image" [src]="comida.imagen ? comida.imagen : 'assets/imagen-no-disponible.jpeg'" alt="{{ comida.nombre }}">

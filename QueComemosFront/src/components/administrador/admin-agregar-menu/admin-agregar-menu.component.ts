@@ -63,7 +63,8 @@ export class AdminAgregarMenuComponent implements OnInit {
           { id: formData.postreId }
         ],
         esVegetariano: formData.esVegetariano,
-        fecha: formData.fecha
+        fecha: formData.fecha,
+        habilitado: true
       };
 
       // Enviar los datos al backend

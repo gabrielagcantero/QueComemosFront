@@ -13,22 +13,22 @@
   </div>
   <table class="menus-table">
     <tr>
-      <th class="col-nombre">Nombre</th>
-      <th class="col-tipo">Tipo</th>
-      <th class="col-precio">Precio</th>
+      <th class="col-nombre-menu">Nombre</th>
+      <th class="col-tipo-menu">Tipo</th>
+      <th class="col-precio-menu">Precio</th>
       <th class="col-entrada">Entrada</th>
       <th class="col-principal">Plato Principal</th>
       <th class="col-postre">Postre</th>
       <th class="col-bebida">Bebida</th>
-      <th class="col-fecha">Fecha de Venta</th>
+      <th class="col-fecha-menu">Fecha de Venta</th>
       <th class="col-acciones">Acciones</th>
     </tr>
     <tr *ngFor="let menu of menues">
-      <td class="col-nombre">{{ menu.nombre }}</td>
+      <td class="col-nombre-menu">{{ menu.nombre }}</td>
 
-      <td class="col-tipo">{{ menu.vegetariano ? 'Vegetariano' : 'Regular' }}</td>
+      <td class="col-tipo-menu">{{ menu.vegetariano ? 'Vegetariano' : 'Regular' }}</td>
 
-      <td class="col-precio">${{ menu.precio }}</td>
+      <td class="col-precio-menu">${{ menu.precio }}</td>
       <td class="col-entrada">
         <div *ngFor="let comida of menu.comidas">
           <div class="menu-item" *ngIf="comida.categoria == 'ENTRADA'">
@@ -61,7 +61,7 @@
           </div>
         </div>
       </td>
-      <td class="col-fecha">{{ menu.fecha | date:'dd-MMM-yyyy' }}</td>
+      <td class="col-fecha-menu">{{ menu.fecha | date:'dd-MMM-yyyy' }}</td>
       <td class="col-acciones">
         <div class="actions-container">
           <button [routerLink]="['/admin-editar-menu', menu.id]">Editar</button>

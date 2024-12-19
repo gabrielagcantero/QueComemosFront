@@ -482,11 +482,11 @@ selection:focus {
   min-height: 10000px; /* Ajusta este valor según tus necesidades */
 }
 
-.col-nombre {
+.col-nombre-comida {
   width: 20%;
 }
 
-.col-precio {
+.col-precio-comida {
   width: 10%;
   text-align: center;
 }
@@ -527,16 +527,16 @@ selection:focus {
   margin-bottom: 50px;
 }
 
-.col-nombre {
+.col-nombre-menu {
   width: 13%;
 }
 
-.col-tipo {
+.col-tipo-menu {
   width: 12%;
   text-align: center;
 }
 
-.col-precio {
+.col-precio-menu {
   width: 7%;
 }
 
@@ -544,7 +544,7 @@ selection:focus {
   width: 14%;
 }
 
-.col-fecha {
+.col-fecha-menu {
   width: 17%;
   text-align: center;
 }
@@ -572,11 +572,11 @@ selection:focus {
   width: 15%;
 }
 
-.col-tipo {
+.col-tipo-sug {
   width: 15%;
 }
 
-.col-fecha {
+.col-fecha-sug {
   width: 15%;
 }
 
@@ -593,7 +593,7 @@ selection:focus {
   margin-bottom: 20px; /* Ajusta este valor según tus necesidades */
 }
 
-.col-nombre {
+.col-nombre-usu {
   width: 45%;
 }
 
