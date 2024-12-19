@@ -12,26 +12,30 @@
   <button [routerLink]="['/admin-agregar-comida']">Agregar nueva comida</button>
 </div>
 
-<table>
+<table class="comidas-table">
   <tr>
-    <th>Nombre</th>
-    <th>Precio</th>
-    <th>Imagen</th>
-    <th>Categoría</th>
-    <th>Acciones</th>
+    <th class="col-nombre">Nombre</th>
+    <th class="col-precio">Precio</th>
+    <th class="col-imagen">Imagen</th>
+    <th class="col-categoria">Categoría</th>
+    <th class="col-acciones">Acciones</th>
   </tr>
   <tr *ngFor="let comida of comidas">
-    <td>{{ comida.nombre }}</td>
-    <td>${{ comida.precio }}</td>
-    <td>
+    <td class="col-nombre">{{ comida.nombre }}</td>
+    <td class="col-precio">${{ comida.precio }}</td>
+    <td class="col-imagen">
       <div class="menu-item">
-        <img class="menu-image" src="{{ comida.imagen }}" alt="{{ comida.nombre }}">
+        <img class="menu-image" [src]="comida.imagen ? comida.imagen : 'assets/imagen-no-disponible.jpeg'" alt="{{ comida.nombre }}">
       </div>
     </td>
-    <td>{{ comida.categoria }}</td>
-    <td>
-      <button [routerLink]="['/admin-editar-comida', comida.id]">Editar</button>
-      <button>Eliminar</button>
+    <td class="col-categoria">{{ comida.categoria }}</td>
+    <td class="col-acciones">
+      <div class="actions-container">
+        <button [routerLink]="['/admin-editar-comida', comida.id]">Editar</button>
+      </div>
+      <div class="actions-container">
+        <button>Eliminar</button>
+      </div>
     </td>
   </tr>
   <!-- Repite para cada menú -->

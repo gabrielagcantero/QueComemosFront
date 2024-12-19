@@ -35,8 +35,15 @@
     <input type="checkbox" id="esVegetriano" name="esVegetriano" value=true formControlName="vegetariano">
     <label for="esVegetriano">¿Es vegetariano?</label>
   </div>
-  <input type="text" placeholder="url de la imagen de la comida" formControlName="imagen">
-
+  <div>
+    <input 
+      type="file" 
+      accept="image/*" 
+      (change)="onFileSelected($event)" 
+      class="full-width"
+      formControlName="foto"
+    />
+  </div>
   <button type="submit">Agregar comida</button>
 
   <button class="cancel" [routerLink]="['/admin-comidas']">Cancelar</button>

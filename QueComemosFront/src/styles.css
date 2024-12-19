@@ -52,11 +52,6 @@ h1, h2, h3 {
   text-align: center;
 }
 
-.menu-image {
-  width: 100px;
-  height: 100px;
-}
-
 .carta-item img {
   width: 80px;
   height: 80px;
@@ -460,4 +455,66 @@ selection:focus {
   padding: 15px;
   border-radius: 15px;
   background: #333;
+}
+
+.actions-container {
+  display: flex;
+  justify-content: center;
+  margin-left: 0px;
+}
+
+.actions-container button {
+  width: 100px;
+  padding: 10px;
+  border-radius: 15px;
+  background: #333;
+}
+
+.comidas-table {
+  width: 50%;
+  border-collapse: collapse;
+}
+
+.comidas-row {
+  min-height: 10000px; /* Ajusta este valor según tus necesidades */
+}
+
+.col-nombre {
+  width: 20%;
+}
+
+.col-precio {
+  width: 10%;
+}
+
+.col-imagen {
+  width: 30%;
+}
+
+.col-categoria {
+  width: 20%;
+}
+
+.col-acciones {
+  width: 20%;
+  text-align: center;
+}
+
+.menu-item {
+  text-align: center;
+  min-height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-image {
+  max-width: 100%;
+  width: 150px;
+  height: auto;
+}
+
+.actions-container {
+  display: inline-block;
+  margin-right: 10px;
 }

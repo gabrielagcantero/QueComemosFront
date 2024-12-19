@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular
 import {Router, RouterModule} from '@angular/router';
 import { FoodsService } from '../../../app/services/foods.service';
 import { CategoriaComida } from '../../../app/models/comida-model';
+import { Comida } from '../../../app/models/comida-model';
 
 @Component({
   selector: 'app-admin-agregar-comida',
@@ -15,6 +16,7 @@ import { CategoriaComida } from '../../../app/models/comida-model';
 })
 export class AdminAgregarComidaComponent {
   formulario: FormGroup;
+  comida: Comida = new Comida();
 
   constructor(private fb: FormBuilder, private foodsService: FoodsService, private router: Router) {
     // Inicialización del formulario con validadores
@@ -35,18 +37,16 @@ export class AdminAgregarComidaComponent {
     if (this.formulario.valid) {
       const formData = this.formulario.value;
 
-      const data = {
-        nombre: formData.nombre,
-        precio: formData.precio,
-        categoria: CategoriaComida[formData.categoria as keyof typeof CategoriaComida],
-        enCarta: formData.enCarta,
-        imagen: formData.imagen,
-        vegetariano: formData.vegetariano,
-        habilitado: true,
-        menus: formData.menus
-      }
+      const { nombre, precio, categoria, enCarta, vegetariano, habilitado, menus } = this.formulario.value;
 
-      this.foodsService.register(data).subscribe(
+      this.comida.nombre = nombre;
+      this.comida.precio = precio;
+      this.comida.categoria = categoria;
+      this.comida.enCarta = enCarta;
+      this.comida.vegetariano = vegetariano;
+      this.comida.habilitado = habilitado;
+
+      this.foodsService.register(this.comida).subscribe(
         response => {
           alert('Comida registrada con éxito.');
           this.router.navigate(['/admin-comidas']);
@@ -59,6 +59,20 @@ export class AdminAgregarComidaComponent {
     } else {
     // Si el formulario no es válido, marcar los campos como tocados para mostrar errores
     this.formulario.markAllAsTouched();
+    }
+  }
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        this.comida.imagen = (reader.result as string) || '';
+      };
+
+      reader.readAsDataURL(file); // Leer el archivo como Base64
     }
   }
 

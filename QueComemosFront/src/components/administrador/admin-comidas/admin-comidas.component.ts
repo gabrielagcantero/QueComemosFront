@@ -3,6 +3,8 @@ import {RouterModule} from '@angular/router';
 import { AdminNavbarComponent } from '../admin-navbar/admin-navbar.component';
 import { FoodsService } from '../../../app/services/foods.service';
 import { CommonModule } from '@angular/common';
+import { ReloadService } from '../../../app/services/reload.service';
+
 
 
 @Component({
@@ -15,9 +17,18 @@ import { CommonModule } from '@angular/common';
 export class AdminComidasComponent {
   comidas: any[] = [];
 
-  constructor(private foodsService: FoodsService) {}
+  constructor(private foodsService: FoodsService, private reloadService: ReloadService) {}
 
   ngOnInit() {
-    this.foodsService.getItems().subscribe(data => {this.comidas = data});
+    this.cargarComidas();
+    this.reloadService.reload$.subscribe(() => {
+      this.cargarComidas();
+    });
+  }
+
+  cargarComidas() {
+    this.foodsService.getItems().subscribe(data => {
+      this.comidas = data;
+    });
   }
 }
