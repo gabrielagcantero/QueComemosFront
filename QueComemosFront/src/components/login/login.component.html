@@ -56,13 +56,9 @@
           </div>
         </div>
       
-        <button 
-          type="submit" 
-          class="full-width" 
-          [disabled]="formulario.invalid"
-        >
-          Iniciar Sesión
-        </button>
+        <div class="submit-container">
+          <button type="submit" [disabled]="formulario.invalid">Iniciar Sesión</button>
+        </div>
       </form>
 
       <p *ngIf="loginError" class="error-message">{{ loginError }}</p>

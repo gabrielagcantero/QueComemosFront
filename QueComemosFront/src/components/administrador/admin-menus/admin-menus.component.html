@@ -8,8 +8,11 @@
 <body>
   <app-admin-navbar></app-admin-navbar>
 <h1>Administración de Menús</h1>
-  <button class="add-menu" [routerLink]="['/admin-agregar-menu']">Agregar
-  nuevo menú</button>
+<div class="add-button-container">
+  <button [routerLink]="['/admin-agregar-menu']">Agregar
+    nuevo menú
+  </button>
+</div>
 <table>
   <tr>
     <th>Nombre</th>

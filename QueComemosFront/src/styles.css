@@ -204,12 +204,6 @@ th {
   margin: auto auto 30px;
 }
 
-.add-menu {
-  display: block;
-  margin: auto;
-  margin-bottom: 30px;
-}
-
 .add-user {
   display: block;
   margin: auto;
@@ -417,8 +411,10 @@ selection:focus {
 }
 
 .menu-details-button {
-  width: 200px; /* Ajusta el ancho según tus necesidades */
-  padding: 15px; /* Ajusta el relleno según tus necesidades */
+  width: 200px;
+  padding: 15px;
+  border-radius: 15px;
+  background: #333;
 }
 
 .menu-details-button-container {
@@ -428,8 +424,40 @@ selection:focus {
 }
 
 .purchase-button-container button {
-  width: 400px; /* Ajusta el ancho según tus necesidades */
-  padding: 20px; /* Ajusta el relleno según tus necesidades */
+  width: 400px; 
+  padding: 20px;
   margin-top: 10px;
   margin-bottom: 50px;
+  border-radius: 15px;
+  background: #333;
+  font-size: 20px;
+}
+
+.add-button-container {
+  display: flex;
+  justify-content: center;
+  margin-left: 5px;
+}
+
+.add-button-container button {
+  width: 300px; 
+  padding: 20px;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  border-radius: 15px;
+  background: #333;
+  font-size: 20px;
+}
+
+.submit-container {
+  display: flex;
+  justify-content: center;
+  margin-left: 5px;
+}
+
+.submit-container button {
+  width: 200px;
+  padding: 15px;
+  border-radius: 15px;
+  background: #333;
 }

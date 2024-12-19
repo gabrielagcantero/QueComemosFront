@@ -8,7 +8,9 @@
 <body>
   <app-admin-navbar></app-admin-navbar>
 <h1>Administración de Comidas</h1>
-<button class="add-comida" [routerLink]="['/admin-agregar-comida']">Agregar nueva comida</button>
+<div class="add-button-container">
+  <button [routerLink]="['/admin-agregar-comida']">Agregar nueva comida</button>
+</div>
 
 <table>
   <tr>

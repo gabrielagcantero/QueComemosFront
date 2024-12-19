@@ -8,8 +8,11 @@
 <body>
   <app-responsable-navbar></app-responsable-navbar>
 <h1>Registro de Pagos</h1>
-  <button class="add-pago" [routerLink]="['/responsable-agregar-pago']">Agregar nuevo pago</button>
-<table>
+<div class="add-button-container">
+  <button [routerLink]="['/admin-agregar-menu']">Agregar
+    nuevo pago
+  </button>
+</div><table>
   <tr>
     <th>Usuario</th>
     <th>Monto</th>

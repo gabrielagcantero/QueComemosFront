@@ -8,7 +8,11 @@
 <body>
   <app-admin-navbar></app-admin-navbar>
 <h1>Administración de Usuarios</h1>
-  <button class="add-user"[routerLink]="['/admin-agregar-usuario']">Agregar nuevo usuario</button>
+<div class="add-button-container">
+  <button [routerLink]="['/admin-agregar-menu']">Agregar
+    nuevo usuario
+  </button>
+</div>
 <table>
   <tr>
     <th>Nombre</th>

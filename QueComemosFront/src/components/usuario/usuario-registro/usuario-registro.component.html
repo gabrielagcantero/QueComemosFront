@@ -119,13 +119,9 @@
           />
         </div>
       
-        <button 
-          type="submit" 
-          class="full-width" 
-          [disabled]="formulario.invalid"
-        >
-          Registrarse
-        </button>
+        <div class="submit-container">
+          <button type="submit" [disabled]="formulario.invalid">Registrarse</button>
+        </div>
       </form>
 
       <p *ngIf="registerError" class="error-message">{{ registerError }}</p>
