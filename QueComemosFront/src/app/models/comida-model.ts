@@ -1,6 +1,7 @@
 // import { Menu } from "./menu-model";
 
 export class Comida {
+    id: number = 0;
     nombre: string = '';
     precio: number  = 0.0;
     categoria: CategoriaComida = CategoriaComida.ENTRADA;

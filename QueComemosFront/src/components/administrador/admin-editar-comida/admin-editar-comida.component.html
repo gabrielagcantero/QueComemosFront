@@ -9,34 +9,32 @@
   <app-admin-navbar></app-admin-navbar>
 <h1>Editar comida</h1>
 <form [formGroup]="formulario" (ngSubmit)="update()">
-  <input type="text" [value]="foodData.nombre" formControlName="nombre" required>
-  <input type="text" [value]="foodData.precio" formControlName="precio" required>
+  <input type="text" formControlName="nombre" required>
+  <input type="text" formControlName="precio" required>
   <select formControlName="categoria" required>
     <option value="" disabled>Seleccione categoría</option>
-    <option value="ENTRADA" [selected]="foodData.categoria === 'ENTRADA'">Entrada</option>
-    <option value="PLATO_PRINCIPAL" [selected]="foodData.categoria === 'PLATO_PRINCIPAL'">Plato principal</option>
-    <option value="BEBIDA" [selected]="foodData.categoria === 'BEBIDA'">Bebida</option>
-    <option value="POSTRE" [selected]="foodData.categoria === 'POSTRE'">Postre</option>
+    <option value="ENTRADA">Entrada</option>
+    <option value="PLATO_PRINCIPAL">Plato principal</option>
+    <option value="BEBIDA">Bebida</option>
+    <option value="POSTRE">Postre</option>
   </select>
   <div>
-    <input type="checkbox" id="enCarta" name="enCarta" [checked]="foodData.enCarta" value=true formControlName="enCarta">
+    <input type="checkbox" id="enCarta" formControlName="enCarta">
     <label for="enCarta" class="small-text">¿Se ofrece en la carta de comidas?</label>
   </div>
   <div>
-    <input type="checkbox" id="vegetariano" name="esVegetriano" [checked]="foodData.esVegetariano" value=true formControlName="vegetariano">
-    <label for="esVegetriano" class="small-text">¿Es vegetariano?</label>
+    <input type="checkbox" id="vegetariano" formControlName="vegetariano">
+    <label for="vegetariano" class="small-text">¿Es vegetariano?</label>
   </div>
-
   <div>
     <input 
       type="file" 
       accept="image/*" 
       (change)="onFileSelected($event)" 
       class="full-width"
-      formControlName="foto"
+      formControlName="imagen"
     />
   </div>
-  
   <div class="submit-container">
     <button type="submit">Editar comida</button>
   </div>

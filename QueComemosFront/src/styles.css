@@ -497,11 +497,11 @@ selection:focus {
 }
 
 .col-nombre-menu {
-  width: 13%;
+  width: 12%;
 }
 
 .col-tipo-menu {
-  width: 10%;
+  width: 9%;
   text-align: center;
 }
 
@@ -516,7 +516,7 @@ selection:focus {
 }
 
 .col-fecha-menu {
-  width: 17%;
+  width: 15%;
   text-align: center;
 }
 
