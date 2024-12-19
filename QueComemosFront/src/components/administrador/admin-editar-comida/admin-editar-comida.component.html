@@ -18,19 +18,28 @@
     <option value="BEBIDA" [selected]="foodData.categoria === 'BEBIDA'">Bebida</option>
     <option value="POSTRE" [selected]="foodData.categoria === 'POSTRE'">Postre</option>
   </select>
-  <div class="row">
+  <div>
     <input type="checkbox" id="enCarta" name="enCarta" [checked]="foodData.enCarta" value=true formControlName="enCarta">
-    <label for="enCarta">¿Se ofrece en la carta de comidas?</label>
+    <label for="enCarta" class="small-text">¿Se ofrece en la carta de comidas?</label>
   </div>
-  <div class="row">
-    <input type="checkbox" id="esVegetriano" name="esVegetriano" [checked]="foodData.esVegetariano" value=true formControlName="vegetariano">
-    <label for="esVegetriano">¿Es vegetariano?</label>
+  <div>
+    <input type="checkbox" id="vegetariano" name="esVegetriano" [checked]="foodData.esVegetariano" value=true formControlName="vegetariano">
+    <label for="esVegetriano" class="small-text">¿Es vegetariano?</label>
   </div>
-  <input type="text" [value]="foodData.imagen" formControlName="imagen">
 
-  <button type="submit">Editar comida</button>
-
-  <button class="cancel" [routerLink]="['/admin-comidas']">Cancelar</button>
+  <div>
+    <input 
+      type="file" 
+      accept="image/*" 
+      (change)="onFileSelected($event)" 
+      class="full-width"
+      formControlName="foto"
+    />
+  </div>
+  
+  <div class="submit-container">
+    <button type="submit">Editar comida</button>
+  </div>
 </form>
 </body>
 </html>

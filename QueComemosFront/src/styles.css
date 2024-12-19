@@ -217,7 +217,9 @@ button {
 button:hover,
 .purchase-button-container button:hover,
 .submit-container button:hover,
-.buttons button:hover {
+.buttons button:hover,
+.add-button-container button:hover,
+.actions-container button:hover{
   background-color: #7a3a3a;
 }
 
@@ -320,7 +322,7 @@ button.cancel {
 
 .full-width {
   width: 100%;
-  box-sizing: border-box; /* Ensures padding and border are included in the width */
+  box-sizing: border-box;
 }
 
 .error {
@@ -425,7 +427,8 @@ selection:focus {
 .actions-container {
   display: flex;
   justify-content: center;
-  margin-left: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .actions-container button {
@@ -444,7 +447,7 @@ selection:focus {
 }
 
 .comidas-row {
-  min-height: 10000px; /* Ajusta este valor según tus necesidades */
+  min-height: 10000px;
 }
 
 .col-nombre-comida {
@@ -498,12 +501,13 @@ selection:focus {
 }
 
 .col-tipo-menu {
-  width: 12%;
+  width: 10%;
   text-align: center;
 }
 
 .col-precio-menu {
   width: 7%;
+  text-align: center;
 }
 
 .col-entrada, .col-principal, .col-postre, .col-bebida {
@@ -521,14 +525,25 @@ selection:focus {
 }
 
 .menu-image-menu {
+  max-height: 100%;
   max-width: 100%;
-  width: 100px;
-  height: auto;
 }
 
 .col-acciones-menu {
-  width: 5%;
+  width: 7%;
   text-align: center;
+}
+
+.image-container {
+  min-height: 200px; /* Ajusta la altura mínima según tus necesidades */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-container img {
+  max-height: 95%;
+  max-width: 95%;
 }
 
 
@@ -537,7 +552,7 @@ selection:focus {
 .sugerencias-table {
   width: 70%;
   border-collapse: collapse;
-  margin-bottom: 20px; /* Ajusta este valor según tus necesidades */
+  margin-bottom: 20px;
 }
 
 .col-usuario {
@@ -546,10 +561,12 @@ selection:focus {
 
 .col-tipo-sug {
   width: 15%;
+  text-align: center;
 }
 
 .col-fecha-sug {
   width: 15%;
+  text-align: center;
 }
 
 .col-mensaje {
@@ -562,7 +579,7 @@ selection:focus {
 .usuarios-table {
   width: 40%;
   border-collapse: collapse;
-  margin-bottom: 20px; /* Ajusta este valor según tus necesidades */
+  margin-bottom: 20px;
 }
 
 .col-nombre-usu {
@@ -621,22 +638,10 @@ selection:focus {
 
 .carousel-item {
   flex: 0 0 auto;
-  margin-right: 40px; /* Aumenta el margen derecho para más separación */
+  margin-right: 40px;
 }
 
 .carousel-item img {
-  width: 324px; /* Ajusta el ancho según tus necesidades */
-  height: auto; /* Mantiene la proporción de la imagen */
-}
-
-.image-container {
-  min-height: 400px; /* Ajusta la altura mínima según tus necesidades */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.image-container img {
-  max-height: 100%;
-  max-width: 100%;
+  width: 324px;
+  height: auto;
 }

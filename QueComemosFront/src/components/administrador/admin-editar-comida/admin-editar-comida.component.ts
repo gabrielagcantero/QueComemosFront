@@ -4,6 +4,7 @@ import { AdminNavbarComponent } from '../admin-navbar/admin-navbar.component';
 import { FoodsService } from '../../../app/services/foods.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Comida } from '../../../app/models/comida-model';
 
 
 @Component({
@@ -17,6 +18,7 @@ export class AdminEditarComidaComponent {
   formulario!: FormGroup;
   foodData: any = {};
   id = 0;
+
 
   constructor(private fb: FormBuilder, private foodsService: FoodsService, private route: ActivatedRoute, private router: Router) {
     
@@ -66,6 +68,20 @@ export class AdminEditarComidaComponent {
           alert('Ocurrió un error al actualizar la comida.');
         }
       );
+    }
+  }
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        this.foodData.imagen = (reader.result as string) || '';
+      };
+
+      reader.readAsDataURL(file); // Leer el archivo como Base64
     }
   }
 }

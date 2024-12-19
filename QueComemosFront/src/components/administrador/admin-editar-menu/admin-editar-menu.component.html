@@ -37,17 +37,17 @@
   </select>
   <div class="checkbox-vegie">
     <input type="checkbox" id="vegetariano" name="vegetariano" value="Si">
-    <label for="vegetariano">¿Es vegetariano?</label> <br>
+    <label for="vegetariano" class="small-text">¿Es vegetariano?</label> <br>
   </div>
   <br>
   <div class="fecha-venta">
-    <label for="fechaVenta">Fecha de venta:</label> <input type="date"
+    <label for="fechaVenta" class="small-text">Fecha de venta:</label> <input type="date"
                                                            id="fechaVenta" name="fechaVenta" placeholder="">
   </div>
   <br>
-  <button type="submit">Editar menú</button>
-  <br>
-  <button class="cancel" [routerLink]="['/admin-menus']">Cancelar</button>
+  <div class="submit-container">
+    <button type="submit">Editar menú</button>
+  </div>
 </form>
 </body>
 </html>
