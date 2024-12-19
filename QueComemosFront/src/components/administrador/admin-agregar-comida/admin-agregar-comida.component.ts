@@ -23,7 +23,7 @@ export class AdminAgregarComidaComponent {
       precio: ['', [Validators.required, Validators.min(0)]],
       categoria: ['', Validators.required],
       enCarta: [true],
-      imagen: ['', Validators.required],
+      imagen: [''],
       vegetariano: [false],
       habilitado: [true],
       menus: [null]
@@ -56,8 +56,10 @@ export class AdminAgregarComidaComponent {
           alert('Ocurrió un error al registrar la comida.');
         }
       );
+    } else {
+    // Si el formulario no es válido, marcar los campos como tocados para mostrar errores
+    this.formulario.markAllAsTouched();
     }
-
   }
 
 }
