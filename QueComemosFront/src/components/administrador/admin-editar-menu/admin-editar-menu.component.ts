@@ -1,107 +1,129 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router, RouterModule} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { ActivatedRoute, Router, RouterLink, RouterModule } from '@angular/router';
+import { FoodsService } from '../../../app/services/foods.service';
+import { MenuService } from '../../../app/services/menu.service';
+import { CommonModule } from '@angular/common';
 import { AdminNavbarComponent } from '../admin-navbar/admin-navbar.component';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {MenuService} from '../../../app/services/menu.service';
-import {FoodsService} from '../../../app/services/foods.service';
-
 
 @Component({
   selector: 'app-admin-editar-menu',
-  imports: [RouterModule, AdminNavbarComponent, ReactiveFormsModule],
+  imports: [RouterModule, ReactiveFormsModule, AdminNavbarComponent, CommonModule],
   templateUrl: './admin-editar-menu.component.html',
   styleUrl: '../../../styles.css'
 })
 export class AdminEditarMenuComponent implements OnInit {
-  menuForm!: FormGroup; // Formulario reactivo
-  menuId!: number; // ID del menú a editar
+  formulario: FormGroup;
   entradas: any[] = [];
   principales: any[] = [];
-  postres: any[] = [];
   bebidas: any[] = [];
+  postres: any[] = [];
+  menuId!: number; // ID del menú a editar
 
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
     private fb: FormBuilder,
+    private foodsService: FoodsService,
     private menuService: MenuService,
-    private foodsService: FoodsService
-  ) {}
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
+    // Inicialización del formulario con validadores
+    this.formulario = this.fb.group({
+      nombre: ['', Validators.required],
+      precio: ['', [Validators.required, Validators.min(0)]],
+      entradaId: [null],
+      platoPrincipalId: [null],
+      bebidaId: [null],
+      postreId: [null],
+      esVegetariano: [false], // Checkbox no requiere validación
+      fecha: ['', Validators.required]
+    });
+  }
 
   ngOnInit(): void {
     // Obtener el ID del menú desde la URL
     this.menuId = Number(this.route.snapshot.paramMap.get('id'));
 
-    // Inicializar el formulario
-    this.menuForm = this.fb.group({
-      nombre: ['', Validators.required],
-      precio: ['', [Validators.required, Validators.min(0)]],
-      vegetariano: [false],
-      fecha: ['', Validators.required],
-      entrada: ['', Validators.required],
-      principal: ['', Validators.required],
-      postre: ['', Validators.required],
-      bebida: ['', Validators.required],
-    });
+    // Cargar los datos existentes del menú
+    this.loadMenuData();
 
-    // Cargar datos del menú
-    this.menuService.getMenuById(this.menuId).subscribe(menu => {
-      this.menuForm.patchValue({
-        nombre: menu.nombre,
-        precio: menu.precio,
-        vegetariano: menu.vegetariano,
-        fecha: menu.fecha,
-        entrada: menu.comidas.find((c: any) => c.categoria === 'ENTRADA')?.id || '',
-        principal: menu.comidas.find((c: any) => c.categoria === 'PLATO_PRINCIPAL')?.id || '',
-        postre: menu.comidas.find((c: any) => c.categoria === 'POSTRE')?.id || '',
-        bebida: menu.comidas.find((c: any) => c.categoria === 'BEBIDA')?.id || '',
-      });
-    });
-
-    // Cargar opciones de comida
-    this.loadFoodOptions();
+    // Cargar las opciones (entradas, principales, bebidas, postres)
+    this.foodsService.getEntradas().subscribe(data => (this.entradas = data));
+    this.foodsService.getPrincipales().subscribe(data => (this.principales = data));
+    this.foodsService.getBebidas().subscribe(data => (this.bebidas = data));
+    this.foodsService.getPostres().subscribe(data => (this.postres = data));
   }
 
-  loadFoodOptions(): void {
-    this.foodsService.getEntradas().subscribe(data => this.entradas = data);
-    this.foodsService.getPrincipales().subscribe(data => this.principales = data);
-    this.foodsService.getPostres().subscribe(data => this.postres = data);
-    this.foodsService.getBebidas().subscribe(data => this.bebidas = data);
+  // Método para cargar los datos del menú a editar
+  loadMenuData(): void {
+    this.menuService.getMenuByIdEdit(this.menuId).subscribe(
+      (menu) => {
+        // Rellenar el formulario con los datos existentes
+        this.formulario.patchValue({
+          nombre: menu.nombre,
+          precio: menu.precio,
+          entradaId: menu.comidas.find((c: any) => c.categoria === 'ENTRADA')?.id,
+          platoPrincipalId: menu.comidas.find((c: any) => c.categoria === 'PLATO_PRINCIPAL')?.id,
+          bebidaId: menu.comidas.find((c: any) => c.categoria === 'BEBIDA')?.id,
+          postreId: menu.comidas.find((c: any) => c.categoria === 'POSTRE')?.id,
+          esVegetariano: menu.esVegetariano,
+          fecha: menu.fecha
+        });
+      },
+      (error) => {
+        console.error('Error al cargar el menú:', error);
+        alert('Error al cargar el menú.');
+      }
+    );
   }
 
-  onSubmit(): void {
-    if (this.menuForm.valid) {
-      const updatedMenu = {
-        id: this.menuId,
-        ...this.menuForm.value,
+  // Método para enviar el formulario y editar el menú
+  submitForm(): void {
+    console.log(this.formulario.valid);
+    if (this.formulario.valid) {
+      const formData = this.formulario.value;
+
+      const comidas = [];
+
+      if (formData.entradaId != null) {
+        comidas.push({ id: formData.entradaId });
+      }
+      if (formData.platoPrincipalId != null) {
+        comidas.push({ id: formData.platoPrincipalId });
+      }
+      if (formData.bebidaId != null) {
+        comidas.push({ id: formData.bebidaId });
+      }
+      if (formData.postreId != null) {
+        comidas.push({ id: formData.postreId });
+      }
+
+      // Estructurar los datos para el backend
+      const menuData = {
+        id: this.menuId, // ID del menú a actualizar
+        nombre: formData.nombre,
+        precio: formData.precio,
+        comidas: comidas, // Solo se agregan comidas válidas
+        esVegetariano: formData.esVegetariano,
+        fecha: formData.fecha,
+        habilitado: true
       };
 
-      // Ajustar estructura de comidas para el backend
-      updatedMenu.comidas = [
-        { id: this.menuForm.value.entrada },
-        { id: this.menuForm.value.principal },
-        { id: this.menuForm.value.postre },
-        { id: this.menuForm.value.bebida },
-      ];
 
-      delete updatedMenu.entrada;
-      delete updatedMenu.principal;
-      delete updatedMenu.postre;
-      delete updatedMenu.bebida;
-
-      this.menuService.updateMenu(updatedMenu).subscribe({
-        next: () => {
+      // Enviar los datos al backend
+      this.menuService.update(menuData).subscribe(
+        (response) => {
           alert('Menú actualizado con éxito.');
           this.router.navigate(['/admin-menus']);
         },
-        error: (err) => {
-          alert('Error al actualizar el menú: ' + err);
+        (error) => {
+          console.error(error);
+          alert('Ocurrió un error al actualizar el menú.');
         }
-      });
+      );
+    } else {
+      // Si el formulario no es válido, marcar los campos como tocados para mostrar errores
+      this.formulario.markAllAsTouched();
     }
-  }
-
-  onCancel(): void {
-    this.router.navigate(['/admin-menus']);
   }
 }

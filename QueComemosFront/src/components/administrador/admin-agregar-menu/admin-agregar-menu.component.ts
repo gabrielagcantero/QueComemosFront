@@ -30,10 +30,10 @@ export class AdminAgregarMenuComponent implements OnInit {
     this.formulario = this.fb.group({
       nombre: ['', Validators.required],
       precio: ['', [Validators.required, Validators.min(0)]],
-      entradaId: ['', Validators.required],
-      platoPrincipalId: ['', Validators.required],
-      bebidaId: ['', Validators.required],
-      postreId: ['', Validators.required],
+      entradaId: [null],
+      platoPrincipalId: [null],
+      bebidaId: [null],
+      postreId: [null],
       esVegetariano: [false], // Checkbox no requiere validación
       fecha: ['', Validators.required]
     });
@@ -52,16 +52,26 @@ export class AdminAgregarMenuComponent implements OnInit {
     if (this.formulario.valid) {
       const formData = this.formulario.value;
 
+      const comidas = [];
+
+      if (formData.entradaId != null) {
+        comidas.push({ id: formData.entradaId });
+      }
+      if (formData.platoPrincipalId != null) {
+        comidas.push({ id: formData.platoPrincipalId });
+      }
+      if (formData.bebidaId != null) {
+        comidas.push({ id: formData.bebidaId });
+      }
+      if (formData.postreId != null) {
+        comidas.push({ id: formData.postreId });
+      }
+
       // Estructurar los datos para el backend
       const menuData = {
         nombre: formData.nombre,
         precio: formData.precio,
-        comidas: [
-          { id: formData.entradaId },
-          { id: formData.platoPrincipalId },
-          { id: formData.bebidaId },
-          { id: formData.postreId }
-        ],
+        comidas: comidas, // Solo se agregan comidas válidas
         esVegetariano: formData.esVegetariano,
         fecha: formData.fecha,
         habilitado: true

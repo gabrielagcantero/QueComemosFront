@@ -30,15 +30,12 @@ export class MenuService {
     return this.http.post(`${env.url}/menues/registrar`, menu, { responseType: 'text' });
   }
 
-  getMenuById(id: number): Observable<any> {
-    return this.http.get<any>(`${env.url}/menues/listar`).pipe(
-      map((menues: any) => menues.find((menu: any) => menu.id === id))
-    );
+
+  getMenuByIdEdit(id: number): Observable<any> {
+    return this.http.get(`${env.url}/menues/get/${id}`);
   }
 
-
-  // Método para editar un menú
-  updateMenu(menu: any): Observable<any> {
+  update(menu: any): Observable<any> {
     return this.http.put(`${env.url}/menues/editar`, menu, { responseType: 'text' });
   }
 

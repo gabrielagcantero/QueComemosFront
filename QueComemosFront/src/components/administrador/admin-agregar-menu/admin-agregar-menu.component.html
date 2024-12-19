@@ -6,7 +6,7 @@
   <title>Agregar nuevo menú - ¿Qué comemos?</title>
 </head>
 <body>
-  <app-admin-navbar></app-admin-navbar>
+<app-admin-navbar></app-admin-navbar>
 <h1>Agregar nuevo menú</h1>
 <form [formGroup]="formulario" (ngSubmit)="submitForm()">
   <div>
@@ -31,49 +31,49 @@
 
   <div>
     <select formControlName="entradaId">
-      <option value="" disabled>Seleccione tipo Entrada</option>
+      <option value="" disabled selected>Seleccione tipo Entrada</option>
       <option *ngFor="let entrada of entradas" [value]="entrada.id">
         {{ entrada.nombre }}
       </option>
     </select>
     <div *ngIf="formulario.get('entradaId')?.touched && formulario.get('entradaId')?.invalid" class="error">
-      Debe seleccionar una entrada.
+      Debe seleccionar una entrada (opcional).
     </div>
   </div>
 
   <div>
     <select formControlName="platoPrincipalId">
-      <option value="" disabled>Seleccione tipo de Plato Principal</option>
+      <option value="" disabled selected>Seleccione tipo de Plato Principal</option>
       <option *ngFor="let principal of principales" [value]="principal.id">
         {{ principal.nombre }}
       </option>
     </select>
     <div *ngIf="formulario.get('platoPrincipalId')?.touched && formulario.get('platoPrincipalId')?.invalid" class="error">
-      Debe seleccionar un plato principal.
+      Debe seleccionar un plato principal (opcional).
     </div>
   </div>
 
   <div>
     <select formControlName="bebidaId">
-      <option value="" disabled>Seleccione tipo de Bebida</option>
+      <option value="" disabled selected>Seleccione tipo de Bebida</option>
       <option *ngFor="let bebida of bebidas" [value]="bebida.id">
         {{ bebida.nombre }}
       </option>
     </select>
     <div *ngIf="formulario.get('bebidaId')?.touched && formulario.get('bebidaId')?.invalid" class="error">
-      Debe seleccionar una bebida.
+      Debe seleccionar una bebida (opcional).
     </div>
   </div>
 
   <div>
     <select formControlName="postreId">
-      <option value="" disabled>Seleccione tipo de Postre</option>
+      <option value="" disabled selected>Seleccione tipo de Postre</option>
       <option *ngFor="let postre of postres" [value]="postre.id">
         {{ postre.nombre }}
       </option>
     </select>
     <div *ngIf="formulario.get('postreId')?.touched && formulario.get('postreId')?.invalid" class="error">
-      Debe seleccionar un postre.
+      Debe seleccionar un postre (opcional).
     </div>
   </div>
 
@@ -82,7 +82,7 @@
       type="checkbox"
       id="vegetariano"
       formControlName="esVegetariano" />
-      <label for="vegetariano" class="small-text">¿Es vegetariano?</label>
+    <label for="vegetariano" class="small-text">¿Es vegetariano?</label>
   </div>
   <br>
 
@@ -101,7 +101,6 @@
     <button type="submit">Agregar menú</button>
   </div>
 </form>
-
 
 </body>
 </html>

@@ -8,51 +8,81 @@
 <body>
   <app-admin-navbar></app-admin-navbar>
   <h1>Editar Menú</h1>
-  <form [formGroup]="menuForm" (ngSubmit)="onSubmit()">
-    <label>Nombre:</label>
-    <input type="text" formControlName="nombre" /><br />
+  <form [formGroup]="formulario" (ngSubmit)="submitForm()">
+    <!-- Nombre -->
+    <input
+      type="text"
+      placeholder="Nombre del menú"
+      formControlName="nombre"
+      required
+    /><br />
 
-    <label>Precio:</label>
-    <input type="number" formControlName="precio" /><br />
+    <!-- Precio -->
+    <input
+      type="number"
+      placeholder="Precio del menú"
+      formControlName="precio"
+      required
+    /><br />
 
-    <label>Vegetariano:</label>
-    <input type="checkbox" formControlName="vegetariano" /><br />
-
-    <label>Fecha de venta:</label>
-    <input type="date" formControlName="fecha" /><br />
-
-    <label>Entrada:</label>
-    <select formControlName="entrada">
+    <select formControlName="entradaId">
+      <option value="" disabled selected>Selecciona una entrada</option>
       <option *ngFor="let entrada of entradas" [value]="entrada.id">
         {{ entrada.nombre }}
       </option>
     </select><br />
 
-    <label>Plato Principal:</label>
-    <select formControlName="principal">
+    <!-- Plato Principal -->
+    <select formControlName="platoPrincipalId">
+      <option value="" disabled selected>Selecciona un plato principal</option>
       <option *ngFor="let principal of principales" [value]="principal.id">
         {{ principal.nombre }}
       </option>
     </select><br />
 
-    <label>Postre:</label>
-    <select formControlName="postre">
-      <option *ngFor="let postre of postres" [value]="postre.id">
-        {{ postre.nombre }}
-      </option>
-    </select><br />
-
-    <label>Bebida:</label>
-    <select formControlName="bebida">
+    <!-- Bebida -->
+    <select formControlName="bebidaId">
+      <option value="" disabled selected>Selecciona una bebida</option>
       <option *ngFor="let bebida of bebidas" [value]="bebida.id">
         {{ bebida.nombre }}
       </option>
     </select><br />
 
-    <button type="submit" [disabled]="menuForm.invalid">Guardar</button>
-    <button type="button" (click)="onCancel()">Cancelar</button>
-  </form>
+    <!-- Postre -->
+    <select formControlName="postreId">
+      <option value="" disabled selected>Selecciona un postre</option>
+      <option *ngFor="let postre of postres" [value]="postre.id">
+        {{ postre.nombre }}
+      </option>
+    </select><br />
 
+    <!-- ¿Es vegetariano? -->
+    <div class="checkbox-vegie">
+      <input
+        type="checkbox"
+        id="vegetariano"
+        formControlName="esVegetariano"
+      />
+      <label for="vegetariano">¿Es vegetariano?</label><br />
+    </div>
+    <br />
+
+    <!-- Fecha de Venta -->
+    <div class="fecha-venta">
+      <label for="fechaVenta">Fecha de venta:</label>
+      <input
+        type="date"
+        id="fechaVenta"
+        formControlName="fecha"
+        required
+      />
+    </div>
+    <br />
+
+    <button type="submit">Guardar Cambios</button>
+    <br />
+    <button class="cancel" [routerLink]="['/admin-menus']">Cancelar</button>
+  </form>
 
 </body>
 </html>
