@@ -28,7 +28,8 @@ export class AdminAgregarComidaComponent {
       imagen: [''],
       vegetariano: [false],
       habilitado: [true],
-      menus: [null]
+      menus: [null],
+      foto: ['']
     });
   }
 

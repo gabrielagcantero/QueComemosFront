@@ -132,50 +132,6 @@ nav .profile img {
   width: 20%;
 }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropbtn {
-  background-color: #5f2525
-;
-  color: black;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown:hover .dropbtn {
-  background-color: #5f2525
-;
-}
-
 table {
   width: 60%;
   margin: auto;
@@ -258,7 +214,12 @@ button {
   margin-top: 10px;
 }
 
-button:hover {
+button:hover,
+.purchase-button-container button:hover,
+.submit-container button:hover,
+.buttons button:hover,
+.add-button-container button:hover,
+.actions-container button:hover{
   background-color: #7a3a3a;
 }
 
@@ -327,6 +288,10 @@ button.cancel {
   width: 30px;
 }
 
+#enCarta {
+  width: 30px;
+}
+
 .fecha-venta {
   display: flex;
   flex-direction: column;
@@ -357,7 +322,7 @@ button.cancel {
 
 .full-width {
   width: 100%;
-  box-sizing: border-box; /* Ensures padding and border are included in the width */
+  box-sizing: border-box;
 }
 
 .error {
@@ -428,6 +393,8 @@ selection:focus {
   font-size: 20px;
 }
 
+
+
 .add-button-container {
   display: flex;
   justify-content: center;
@@ -460,7 +427,8 @@ selection:focus {
 .actions-container {
   display: flex;
   justify-content: center;
-  margin-left: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .actions-container button {
@@ -479,7 +447,7 @@ selection:focus {
 }
 
 .comidas-row {
-  min-height: 10000px; /* Ajusta este valor según tus necesidades */
+  min-height: 10000px;
 }
 
 .col-nombre-comida {
@@ -497,6 +465,7 @@ selection:focus {
 
 .col-categoria {
   width: 20%;
+  text-align: center;
 }
 
 .col-acciones {
@@ -512,7 +481,7 @@ selection:focus {
   align-items: center;
 }
 
-.menu-image {
+.menu-image-comida {
   max-width: 100%;
   width: 150px;
   height: auto;
@@ -528,24 +497,26 @@ selection:focus {
 }
 
 .col-nombre-menu {
-  width: 13%;
+  width: 12%;
 }
 
 .col-tipo-menu {
-  width: 12%;
+  width: 9%;
   text-align: center;
 }
 
 .col-precio-menu {
   width: 7%;
+  text-align: center;
 }
 
 .col-entrada, .col-principal, .col-postre, .col-bebida {
   width: 14%;
+  text-align: center;
 }
 
 .col-fecha-menu {
-  width: 17%;
+  width: 15%;
   text-align: center;
 }
 
@@ -553,10 +524,26 @@ selection:focus {
   text-align: center;
 }
 
-.menu-image {
+.menu-image-menu {
+  max-height: 100%;
   max-width: 100%;
-  width: 100px;
-  height: auto;
+}
+
+.col-acciones-menu {
+  width: 7%;
+  text-align: center;
+}
+
+.image-container {
+  min-height: 200px; /* Ajusta la altura mínima según tus necesidades */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-container img {
+  max-height: 95%;
+  max-width: 95%;
 }
 
 
@@ -565,7 +552,7 @@ selection:focus {
 .sugerencias-table {
   width: 70%;
   border-collapse: collapse;
-  margin-bottom: 20px; /* Ajusta este valor según tus necesidades */
+  margin-bottom: 20px;
 }
 
 .col-usuario {
@@ -574,10 +561,12 @@ selection:focus {
 
 .col-tipo-sug {
   width: 15%;
+  text-align: center;
 }
 
 .col-fecha-sug {
   width: 15%;
+  text-align: center;
 }
 
 .col-mensaje {
@@ -590,7 +579,7 @@ selection:focus {
 .usuarios-table {
   width: 40%;
   border-collapse: collapse;
-  margin-bottom: 20px; /* Ajusta este valor según tus necesidades */
+  margin-bottom: 20px;
 }
 
 .col-nombre-usu {
@@ -600,4 +589,59 @@ selection:focus {
 .col-turno {
   width: 25%;
   text-align: center;
+}
+
+.small-text {
+  font-size: 14px;
+}
+
+/* Modal styles */
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+  margin-right: 40px;
+}
+
+.carousel-item img {
+  width: 324px;
+  height: auto;
 }

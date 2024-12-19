@@ -14,20 +14,20 @@
       <div class="menu-info">
         <h2>Menú No Vegetariano</h2>
         <p>
-          <strong>Entrada:</strong> {{ menuDelDia.entrada }}
+          <strong>Entrada:</strong> {{ menuDelDia.entrada.nombre }}
         </p>
         <p>
-          <strong>Plato principal:</strong> {{ menuDelDia.principal }}
+          <strong>Plato principal:</strong> {{ menuDelDia.principal.nombre }}
         </p>
         <p>
-          <strong>Postre:</strong> {{ menuDelDia.postre }}
+          <strong>Postre:</strong> {{ menuDelDia.postre.nombre }}
         </p>
         <p>
-          <strong>Bebida:</strong> {{ menuDelDia.bebida }}
+          <strong>Bebida:</strong> {{ menuDelDia.bebida.nombre }}
         </p>
         <div class="menu-price">${{ menuDelDia.precio }}</div>
         <div class="menu-details-button-container">
-          <button class="menu-details-button">Ver detalle</button>
+          <button class="menu-details-button" (click)="openModal('Menú No Vegetariano', [menuDelDia.entrada, menuDelDia.principal, menuDelDia.postre, menuDelDia.bebida])">Ver detalle</button>
         </div>
       </div>
       <div class="menu-actions">
@@ -46,20 +46,20 @@
       <div class="menu-info">
         <h2>Menú Vegetariano</h2>
         <p>
-          <strong>Entrada:</strong> {{ menuVeggie.entrada }}
+          <strong>Entrada:</strong> {{ menuVeggie.entrada.nombre }}
         </p>
         <p>
-          <strong>Plato principal:</strong> {{ menuVeggie.principal }}
+          <strong>Plato principal:</strong> {{ menuVeggie.principal.nombre }}
         </p>
         <p>
-          <strong>Postre:</strong> {{ menuVeggie.postre }}
+          <strong>Postre:</strong> {{ menuVeggie.postre.nombre }}
         </p>
         <p>
-          <strong>Bebida:</strong> {{ menuVeggie.bebida }}
+          <strong>Bebida:</strong> {{ menuVeggie.bebida.nombre }}
         </p>
         <div class="menu-price">${{ menuVeggie.precio }}</div>
         <div class="menu-details-button-container">
-          <button class="menu-details-button">Ver detalle</button>
+          <button class="menu-details-button" (click)="openModal('Menú Vegetariano', [menuVeggie.entrada, menuVeggie.principal, menuVeggie.postre, menuVeggie.bebida])">Ver detalle</button>
         </div>    
       </div>
       <div class="menu-actions">
@@ -99,7 +99,6 @@
     </div>
     <br>
   
-  
     <h3>Platos principales</h3>
   
     <div class="carta-item" *ngFor="let principal of principales">
@@ -122,8 +121,6 @@
       </div>
     </div>
     <br>
-  
-  
   
     <h3>Postres</h3>
   
@@ -148,15 +145,13 @@
     </div>
     <br>
   
-  
-  
-  
     <h3>Bebidas</h3>
   
     <div class="carta-item" *ngFor="let bebida of bebidas">
       <div>
         <img [src]="bebida.imagen ? bebida.imagen : 'assets/imagen-no-disponible.jpeg'" alt="{{ bebida.nombre }}">
-      </div>      <div class="carta-item-info">
+      </div>      
+      <div class="carta-item-info">
         <div class="carta-item-name">{{ bebida.nombre }}</div>
         <div class="carta-item-price">${{ bebida.precio }}</div>
       </div>
@@ -174,15 +169,27 @@
     <br>
     <div class="total">Total: {{ total | currency }}</div>
   
-  
     <div class="purchase-button-container">
-      <button
-        onclick="alert('¡Compra exitosa! Se te envió el QR de la compra al email registrado.')">
-        Realizar Compra</button>
+      <button onclick="alert('¡Compra exitosa! Se te envió el QR de la compra al email registrado.')">
+        Realizar Compra
+      </button>
     </div>
   </div>
 
+<!-- Modal -->
+<div id="menuDetailModal" class="modal" *ngIf="showModal">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2>{{ modalTitle }} - Precio: ${{ selectedMenuItems[0]?.precio || 'N/A' }}</h2> <!-- Título del menú con precio -->
+    <div class="carousel">
+      <div *ngFor="let item of selectedMenuItems" class="carousel-item">
+        <div class="image-container">
+          <img [src]="item.imagen ? item.imagen : 'assets/imagen-no-disponible.jpeg'" alt="{{ item.nombre }}">
+        </div>
+        <div class="carousel-item-text"><strong>{{ item.tipo }}:</strong> {{ item.nombre }}</div>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
-
-
 </html>
