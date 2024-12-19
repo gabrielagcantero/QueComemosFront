@@ -470,9 +470,12 @@ selection:focus {
   background: #333;
 }
 
+/* Tabla de comidas */
+
 .comidas-table {
   width: 50%;
   border-collapse: collapse;
+  margin-bottom: 50px;
 }
 
 .comidas-row {
@@ -485,6 +488,7 @@ selection:focus {
 
 .col-precio {
   width: 10%;
+  text-align: center;
 }
 
 .col-imagen {
@@ -514,7 +518,86 @@ selection:focus {
   height: auto;
 }
 
-.actions-container {
-  display: inline-block;
-  margin-right: 10px;
+
+/* Tabla de menus */
+
+.menus-table {
+  width: 80%;
+  border-collapse: collapse;
+  margin-bottom: 50px;
+}
+
+.col-nombre {
+  width: 13%;
+}
+
+.col-tipo {
+  width: 12%;
+  text-align: center;
+}
+
+.col-precio {
+  width: 7%;
+}
+
+.col-entrada, .col-principal, .col-postre, .col-bebida {
+  width: 14%;
+}
+
+.col-fecha {
+  width: 17%;
+  text-align: center;
+}
+
+.menu-item {
+  text-align: center;
+}
+
+.menu-image {
+  max-width: 100%;
+  width: 100px;
+  height: auto;
+}
+
+
+/* Tabla de sugerencias */
+
+.sugerencias-table {
+  width: 70%;
+  border-collapse: collapse;
+  margin-bottom: 20px; /* Ajusta este valor según tus necesidades */
+}
+
+.col-usuario {
+  width: 15%;
+}
+
+.col-tipo {
+  width: 15%;
+}
+
+.col-fecha {
+  width: 15%;
+}
+
+.col-mensaje {
+  width: 45%;
+}
+
+
+/* Tabla de usuarios */
+
+.usuarios-table {
+  width: 40%;
+  border-collapse: collapse;
+  margin-bottom: 20px; /* Ajusta este valor según tus necesidades */
+}
+
+.col-nombre {
+  width: 45%;
+}
+
+.col-turno {
+  width: 25%;
+  text-align: center;
 }

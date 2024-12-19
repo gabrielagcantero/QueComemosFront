@@ -79,8 +79,10 @@
     <h3>Entradas</h3>
   
     <div class="carta-item" *ngFor="let entrada of entradas">
-      <img src="{{ entrada.imagen }}" alt="{{ entrada.nombre }}">
-      <div class="carta-item-info">
+      <div>
+        <img [src]="entrada.imagen ? entrada.imagen : 'assets/imagen-no-disponible.jpeg'" alt="{{ entrada.nombre }}">
+      </div>
+        <div class="carta-item-info">
         <div class="carta-item-name">{{ entrada.nombre }}</div>
         <div class="carta-item-price">${{ entrada.precio }}</div>
       </div>
@@ -101,8 +103,10 @@
     <h3>Platos principales</h3>
   
     <div class="carta-item" *ngFor="let principal of principales">
-      <img src="{{ principal.imagen }}" alt="{{ principal.nombre }}">
-      <div class="carta-item-info">
+      <div>
+        <img [src]="principal.imagen ? principal.imagen : 'assets/imagen-no-disponible.jpeg'" alt="{{ principal.nombre }}">
+      </div>
+        <div class="carta-item-info">
         <div class="carta-item-name">{{ principal.nombre }}</div>
         <div class="carta-item-price">${{ principal.precio }}</div>
       </div>
@@ -124,9 +128,10 @@
     <h3>Postres</h3>
   
     <div class="carta-item" *ngFor="let postre of postres">
-      <img src="{{ postre.imagen }}" alt="{{ postre.nombre }}">
-      <!-- <img src="assets/imagen-no-disponible.jpeg" alt="{{ postre.nombre }}"> -->
-      <div class="carta-item-info">
+      <div>
+        <img [src]="postre.imagen ? postre.imagen : 'assets/imagen-no-disponible.jpeg'" alt="{{ postre.nombre }}">
+      </div>
+        <div class="carta-item-info">
         <div class="carta-item-name">{{ postre.nombre }}</div>
         <div class="carta-item-price">${{ postre.precio }}</div>
       </div>
@@ -149,8 +154,9 @@
     <h3>Bebidas</h3>
   
     <div class="carta-item" *ngFor="let bebida of bebidas">
-      <img src="{{ bebida.imagen }}" alt="{{ bebida.nombre }}">
-      <div class="carta-item-info">
+      <div>
+        <img [src]="bebida.imagen ? bebida.imagen : 'assets/imagen-no-disponible.jpeg'" alt="{{ bebida.nombre }}">
+      </div>      <div class="carta-item-info">
         <div class="carta-item-name">{{ bebida.nombre }}</div>
         <div class="carta-item-price">${{ bebida.precio }}</div>
       </div>

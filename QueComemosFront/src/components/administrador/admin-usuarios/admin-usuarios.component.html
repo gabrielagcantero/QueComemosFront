@@ -7,34 +7,40 @@
 </head>
 <body>
   <app-admin-navbar></app-admin-navbar>
-<h1>Administración de Usuarios</h1>
-<div class="add-button-container">
-  <button [routerLink]="['/admin-agregar-menu']">Agregar
-    nuevo usuario
-  </button>
-</div>
-<table>
-  <tr>
-    <th>Nombre</th>
-    <th>Turno</th>
-    <th>Acciones</th>
-  </tr>
-  <tr>
-    <td>Ana Martínez</td>
-    <td>Mañana</td>
-    <td>
-      <button [routerLink]="['/admin-editar-usuario']">Editar</button>
-      <button>Eliminar</button>
-    </td>
-  </tr>
-  <tr>
-    <td>Carlos López</td>
-    <td>Tarde</td>
-    <td>
-      <button>Editar</button>
-      <button>Eliminar</button>
-    </td>
-  </tr>
-</table>
+  <h1>Administración de Usuarios</h1>
+  <div class="add-button-container">
+    <button [routerLink]="['/admin-agregar-usuario']">Agregar nuevo usuario</button>
+  </div>
+  <table class="usuarios-table">
+    <tr>
+      <th class="col-nombre">Nombre</th>
+      <th class="col-turno">Turno</th>
+      <th class="col-acciones">Acciones</th>
+    </tr>
+    <tr>
+      <td class="col-nombre">Ana Martínez</td>
+      <td class="col-turno">Mañana</td>
+      <td class="col-acciones">
+        <div class="actions-container">
+          <button [routerLink]="['/admin-editar-usuario']">Editar</button>
+        </div>
+        <div class="actions-container">
+          <button>Eliminar</button>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td class="col-nombre">Carlos López</td>
+      <td class="col-turno">Tarde</td>
+      <td class="col-acciones">
+        <div class="actions-container">
+          <button [routerLink]="['/admin-editar-usuario']">Editar</button>
+        </div>
+        <div class="actions-container">
+          <button>Eliminar</button>
+        </div>
+      </td>
+    </tr>
+  </table>
 </body>
 </html>

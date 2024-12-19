@@ -7,65 +7,70 @@
 </head>
 <body>
   <app-admin-navbar></app-admin-navbar>
-<h1>Administración de Menús</h1>
-<div class="add-button-container">
-  <button [routerLink]="['/admin-agregar-menu']">Agregar
-    nuevo menú
-  </button>
-</div>
-<table>
-  <tr>
-    <th>Nombre</th>
-    <th>Tipo</th>
-    <th>Precio</th>
-    <th>Entrada</th>
-    <th>Plato Principal</th>
-    <th>Postre</th>
-    <th>Bebida</th>
-    <th>Fecha de Venta</th>
-    <th>Acciones</th>
-  </tr>
-  <tr *ngFor="let menu of menues">
-    <td>{{ menu.nombre }}</td>
-    <td *ngIf="menu.vegetariano;else noVeggie">Sí</td>
-    <ng-template #noVeggie>
-      <td>No</td>
-    </ng-template>
-    <td>${{ menu.precio }}</td>
-    <td>
-      <div *ngFor="let comida of menu.comidas">
-        <div class="menu-item" *ngIf="comida.categoria == 'ENTRADA'">
-          <span>{{ comida.nombre }}</span> <img class="menu-image" src="{{ comida.imagen }}" alt="Imagen de la entrada">
+  <h1>Administración de Menús</h1>
+  <div class="add-button-container">
+    <button [routerLink]="['/admin-agregar-menu']">Agregar nuevo menú</button>
+  </div>
+  <table class="menus-table">
+    <tr>
+      <th class="col-nombre">Nombre</th>
+      <th class="col-tipo">Tipo</th>
+      <th class="col-precio">Precio</th>
+      <th class="col-entrada">Entrada</th>
+      <th class="col-principal">Plato Principal</th>
+      <th class="col-postre">Postre</th>
+      <th class="col-bebida">Bebida</th>
+      <th class="col-fecha">Fecha de Venta</th>
+      <th class="col-acciones">Acciones</th>
+    </tr>
+    <tr *ngFor="let menu of menues">
+      <td class="col-nombre">{{ menu.nombre }}</td>
+
+      <td class="col-tipo">{{ menu.vegetariano ? 'Vegetariano' : 'Regular' }}</td>
+
+      <td class="col-precio">${{ menu.precio }}</td>
+      <td class="col-entrada">
+        <div *ngFor="let comida of menu.comidas">
+          <div class="menu-item" *ngIf="comida.categoria == 'ENTRADA'">
+            <span>{{ comida.nombre }}</span> 
+            <img class="menu-image" [src]="comida.imagen ? comida.imagen : 'assets/imagen-no-disponible.jpeg'" alt="{{ comida.nombre }}">
+          </div>
         </div>
-      </div>
-    </td>
-    <td>
-      <div *ngFor="let comida of menu.comidas">
-        <div class="menu-item" *ngIf="comida.categoria == 'PLATO_PRINCIPAL'">
-          <span>{{ comida.nombre }}</span> <img class="menu-image" src="{{ comida.imagen }}" alt="Imagen del plato principal">
+      </td>
+      <td class="col-principal">
+        <div *ngFor="let comida of menu.comidas">
+          <div class="menu-item" *ngIf="comida.categoria == 'PLATO_PRINCIPAL'">
+            <span>{{ comida.nombre }}</span> 
+            <img class="menu-image" [src]="comida.imagen ? comida.imagen : 'assets/imagen-no-disponible.jpeg'" alt="{{ comida.nombre }}">
+          </div>
         </div>
-      </div>
-    </td>
-    <td>
-      <div *ngFor="let comida of menu.comidas">
-        <div class="menu-item" *ngIf="comida.categoria == 'POSTRE'">
-          <span>{{ comida.nombre }}</span> <img class="menu-image" src="{{ comida.imagen }}" alt="Imagen del postre">
+      </td>
+      <td class="col-postre">
+        <div *ngFor="let comida of menu.comidas">
+          <div class="menu-item" *ngIf="comida.categoria == 'POSTRE'">
+            <span>{{ comida.nombre }}</span> 
+            <img class="menu-image" [src]="comida.imagen ? comida.imagen : 'assets/imagen-no-disponible.jpeg'" alt="{{ comida.nombre }}">
+          </div>
         </div>
-      </div>
-    </td>
-    <td>
-      <div *ngFor="let comida of menu.comidas">
-        <div class="menu-item" *ngIf="comida.categoria == 'BEBIDA'">
-          <span>{{ comida.nombre }}</span> <img class="menu-image" src="{{ comida.imagen }}" alt="Imagen de la bebida">
+      </td>
+      <td class="col-bebida">
+        <div *ngFor="let comida of menu.comidas">
+          <div class="menu-item" *ngIf="comida.categoria == 'BEBIDA'">
+            <span>{{ comida.nombre }}</span> 
+            <img class="menu-image" [src]="comida.imagen ? comida.imagen : 'assets/imagen-no-disponible.jpeg'" alt="{{ comida.nombre }}">
+          </div>
         </div>
-      </div>
-    </td>
-    <td>{{ menu.fecha }}</td>
-    <td>
-      <button [routerLink]="['/admin-editar-menu']">Editar</button>
-      <button>Eliminar</button>
-    </td>
-  </tr>
-</table>
+      </td>
+      <td class="col-fecha">{{ menu.fecha | date:'dd-MMM-yyyy' }}</td>
+      <td class="col-acciones">
+        <div class="actions-container">
+          <button [routerLink]="['/admin-editar-menu', menu.id]">Editar</button>
+        </div>
+        <div class="actions-container">
+          <button>Eliminar</button>
+        </div>
+      </td>
+    </tr>
+  </table>
 </body>
 </html>
