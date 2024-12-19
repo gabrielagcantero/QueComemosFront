@@ -7,47 +7,52 @@
 </head>
 <body>
   <app-admin-navbar></app-admin-navbar>
-<h1>Editar menú</h1>
-<form>
-  <input type="text" placeholder="Nombre del menú" required><br>
-  <input type="text" placeholder="Precio del menú"><br>
-  <select
-    required>
-    <option value="">Seleccione tipo Entrada</option>
-    <option value="alimentos">Empanada</option>
-    <option value="infraestructura">Arrollado primavera</option>
-  </select>
-  <select
-    required>
-    <option value="">Seleccione tipo de Plato Principal</option>
-    <option value="alimentos">Pollo</option>
-    <option value="infraestructura">Milanesa con puré</option>
-  </select>
-  <select
-    required>
-    <option value="">Seleccione tipo de Bebida</option>
-    <option value="alimentos">Agua</option>
-    <option value="infraestructura">Gaseosa</option>
-  </select>
-  <select
-    required>
-    <option value="">Seleccione tipo de Postre</option>
-    <option value="alimentos">Flan</option>
-    <option value="infraestructura">Helado</option>
-  </select>
-  <div class="checkbox-vegie">
-    <input type="checkbox" id="vegetariano" name="vegetariano" value="Si">
-    <label for="vegetariano">¿Es vegetariano?</label> <br>
-  </div>
-  <br>
-  <div class="fecha-venta">
-    <label for="fechaVenta">Fecha de venta:</label> <input type="date"
-                                                           id="fechaVenta" name="fechaVenta" placeholder="">
-  </div>
-  <br>
-  <button type="submit">Editar menú</button>
-  <br>
-  <button class="cancel" [routerLink]="['/admin-menus']">Cancelar</button>
-</form>
+  <h1>Editar Menú</h1>
+  <form [formGroup]="menuForm" (ngSubmit)="onSubmit()">
+    <label>Nombre:</label>
+    <input type="text" formControlName="nombre" /><br />
+
+    <label>Precio:</label>
+    <input type="number" formControlName="precio" /><br />
+
+    <label>Vegetariano:</label>
+    <input type="checkbox" formControlName="vegetariano" /><br />
+
+    <label>Fecha de venta:</label>
+    <input type="date" formControlName="fecha" /><br />
+
+    <label>Entrada:</label>
+    <select formControlName="entrada">
+      <option *ngFor="let entrada of entradas" [value]="entrada.id">
+        {{ entrada.nombre }}
+      </option>
+    </select><br />
+
+    <label>Plato Principal:</label>
+    <select formControlName="principal">
+      <option *ngFor="let principal of principales" [value]="principal.id">
+        {{ principal.nombre }}
+      </option>
+    </select><br />
+
+    <label>Postre:</label>
+    <select formControlName="postre">
+      <option *ngFor="let postre of postres" [value]="postre.id">
+        {{ postre.nombre }}
+      </option>
+    </select><br />
+
+    <label>Bebida:</label>
+    <select formControlName="bebida">
+      <option *ngFor="let bebida of bebidas" [value]="bebida.id">
+        {{ bebida.nombre }}
+      </option>
+    </select><br />
+
+    <button type="submit" [disabled]="menuForm.invalid">Guardar</button>
+    <button type="button" (click)="onCancel()">Cancelar</button>
+  </form>
+
+
 </body>
 </html>
