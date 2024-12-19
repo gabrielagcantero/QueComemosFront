@@ -132,50 +132,6 @@ nav .profile img {
   width: 20%;
 }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropbtn {
-  background-color: #5f2525
-;
-  color: black;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown:hover .dropbtn {
-  background-color: #5f2525
-;
-}
-
 table {
   width: 60%;
   margin: auto;
@@ -258,7 +214,10 @@ button {
   margin-top: 10px;
 }
 
-button:hover {
+button:hover,
+.purchase-button-container button:hover,
+.submit-container button:hover,
+.buttons button:hover {
   background-color: #7a3a3a;
 }
 
@@ -324,6 +283,10 @@ button.cancel {
 }
 
 #vegetariano {
+  width: 30px;
+}
+
+#enCarta {
   width: 30px;
 }
 
@@ -428,6 +391,8 @@ selection:focus {
   font-size: 20px;
 }
 
+
+
 .add-button-container {
   display: flex;
   justify-content: center;
@@ -497,6 +462,7 @@ selection:focus {
 
 .col-categoria {
   width: 20%;
+  text-align: center;
 }
 
 .col-acciones {
@@ -512,7 +478,7 @@ selection:focus {
   align-items: center;
 }
 
-.menu-image {
+.menu-image-comida {
   max-width: 100%;
   width: 150px;
   height: auto;
@@ -542,6 +508,7 @@ selection:focus {
 
 .col-entrada, .col-principal, .col-postre, .col-bebida {
   width: 14%;
+  text-align: center;
 }
 
 .col-fecha-menu {
@@ -553,10 +520,15 @@ selection:focus {
   text-align: center;
 }
 
-.menu-image {
+.menu-image-menu {
   max-width: 100%;
   width: 100px;
   height: auto;
+}
+
+.col-acciones-menu {
+  width: 5%;
+  text-align: center;
 }
 
 
@@ -600,4 +572,8 @@ selection:focus {
 .col-turno {
   width: 25%;
   text-align: center;
+}
+
+.small-text {
+  font-size: 14px;
 }

@@ -27,14 +27,15 @@
   <div *ngIf="formulario.get('categoria')?.touched && formulario.get('categoria')?.invalid" class="error">
     Debe seleccionar una categoria.
   </div>
-  <div class="row">
+  <div>
     <input type="checkbox" id="enCarta" name="enCarta" value=true formControlName="enCarta">
-    <label for="enCarta">¿Se ofrece en la carta de comidas?</label>
+    <label for="enCarta" class="small-text">¿Se ofrece en la carta de comidas?</label>
   </div>
-  <div class="row">
-    <input type="checkbox" id="esVegetriano" name="esVegetriano" value=true formControlName="vegetariano">
-    <label for="esVegetriano">¿Es vegetariano?</label>
+  <div>
+    <input type="checkbox" id="vegetariano" name="esVegetriano" value=true formControlName="vegetariano">
+    <label for="esVegetriano" class="small-text">¿Es vegetariano?</label>
   </div>
+
   <div>
     <input 
       type="file" 
@@ -44,9 +45,9 @@
       formControlName="foto"
     />
   </div>
-  <button type="submit">Agregar comida</button>
-
-  <button class="cancel" [routerLink]="['/admin-comidas']">Cancelar</button>
+  <div class="submit-container">
+    <button type="submit">Agregar comida</button>
+  </div>
 </form>
 </body>
 </html>

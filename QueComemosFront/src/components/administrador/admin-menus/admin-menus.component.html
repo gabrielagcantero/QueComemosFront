@@ -25,42 +25,59 @@
     </tr>
     <tr *ngFor="let menu of menues">
       <td class="col-nombre-menu">{{ menu.nombre }}</td>
-
+  
       <td class="col-tipo-menu">{{ menu.vegetariano ? 'Vegetariano' : 'Regular' }}</td>
-
+  
       <td class="col-precio-menu">${{ menu.precio }}</td>
+  
       <td class="col-entrada">
-        <div *ngFor="let comida of menu.comidas">
-          <div class="menu-item" *ngIf="comida.categoria == 'ENTRADA'">
-            <span>{{ comida.nombre }}</span> 
-            <img class="menu-image" [src]="comida.imagen ? comida.imagen : 'assets/imagen-no-disponible.jpeg'" alt="{{ comida.nombre }}">
+        <ng-container *ngIf="hasCategory(menu, 'ENTRADA'); else noEntrada">
+          <div *ngFor="let comida of menu.comidas">
+            <div class="menu-item" *ngIf="comida.categoria == 'ENTRADA'">
+              <span>{{ comida.nombre }}</span>
+              <img class="menu-image-menu" [src]="comida.imagen ? comida.imagen : 'assets/imagen-no-disponible.jpeg'" alt="{{ comida.nombre }}">
+            </div>
           </div>
-        </div>
+        </ng-container>
+        <ng-template #noEntrada>No disponible</ng-template>
       </td>
+  
       <td class="col-principal">
-        <div *ngFor="let comida of menu.comidas">
-          <div class="menu-item" *ngIf="comida.categoria == 'PLATO_PRINCIPAL'">
-            <span>{{ comida.nombre }}</span> 
-            <img class="menu-image" [src]="comida.imagen ? comida.imagen : 'assets/imagen-no-disponible.jpeg'" alt="{{ comida.nombre }}">
+        <ng-container *ngIf="hasCategory(menu, 'PLATO_PRINCIPAL'); else noPrincipal">
+          <div *ngFor="let comida of menu.comidas">
+            <div class="menu-item" *ngIf="comida.categoria == 'PLATO_PRINCIPAL'">
+              <span>{{ comida.nombre }}</span>
+              <img class="menu-image-menu" [src]="comida.imagen ? comida.imagen : 'assets/imagen-no-disponible.jpeg'" alt="{{ comida.nombre }}">
+            </div>
           </div>
-        </div>
+        </ng-container>
+        <ng-template #noPrincipal>No disponible</ng-template>
       </td>
+  
       <td class="col-postre">
-        <div *ngFor="let comida of menu.comidas">
-          <div class="menu-item" *ngIf="comida.categoria == 'POSTRE'">
-            <span>{{ comida.nombre }}</span> 
-            <img class="menu-image" [src]="comida.imagen ? comida.imagen : 'assets/imagen-no-disponible.jpeg'" alt="{{ comida.nombre }}">
+        <ng-container *ngIf="hasCategory(menu, 'POSTRE'); else noPostre">
+          <div *ngFor="let comida of menu.comidas">
+            <div class="menu-item" *ngIf="comida.categoria == 'POSTRE'">
+              <span>{{ comida.nombre }}</span>
+              <img class="menu-image-menu" [src]="comida.imagen ? comida.imagen : 'assets/imagen-no-disponible.jpeg'" alt="{{ comida.nombre }}">
+            </div>
           </div>
-        </div>
+        </ng-container>
+        <ng-template #noPostre>No disponible</ng-template>
       </td>
+  
       <td class="col-bebida">
-        <div *ngFor="let comida of menu.comidas">
-          <div class="menu-item" *ngIf="comida.categoria == 'BEBIDA'">
-            <span>{{ comida.nombre }}</span> 
-            <img class="menu-image" [src]="comida.imagen ? comida.imagen : 'assets/imagen-no-disponible.jpeg'" alt="{{ comida.nombre }}">
+        <ng-container *ngIf="hasCategory(menu, 'BEBIDA'); else noBebida">
+          <div *ngFor="let comida of menu.comidas">
+            <div class="menu-item" *ngIf="comida.categoria == 'BEBIDA'">
+              <span>{{ comida.nombre }}</span>
+              <img class="menu-image-menu" [src]="comida.imagen ? comida.imagen : 'assets/imagen-no-disponible.jpeg'" alt="{{ comida.nombre }}">
+            </div>
           </div>
-        </div>
+        </ng-container>
+        <ng-template #noBebida>No disponible</ng-template>
       </td>
+  
       <td class="col-fecha-menu">{{ menu.fecha | date:'dd-MMM-yyyy' }}</td>
       <td class="col-acciones">
         <div class="actions-container">
