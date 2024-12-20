@@ -1,35 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Compras de Menús - ¿Qué comemos?</title>
-</head>
-<body>
-	<app-responsable-navbar></app-responsable-navbar>
-<h1>Compras de Menús</h1>
-<table>
-  <tr>
-    <th>Usuario</th>
-    <th>Menú</th>
-    <th>Cantidad</th>
-    <th>Fecha</th>
-    <th>Estado</th>
-  </tr>
-  <tr>
-    <td>Laura Sánchez</td>
-    <td>Menú Ejecutivo</td>
-    <td>1</td>
-    <td>21-sep-2024</td>
-    <td>Pagado</td>
-  </tr>
-  <tr>
-    <td>Pedro Rodríguez</td>
-    <td>Menú Vegetariano</td>
-    <td>2</td>
-    <td>21-sep-2024</td>
-    <td>Pendiente</td>
-  </tr>
-</table>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compras de Menús - ¿Qué comemos?</title>
+  </head>
+  <body>
+    <app-responsable-navbar></app-responsable-navbar>
+    <h1>Compras</h1>
+    <table>
+      <tr>
+        <th>Usuario</th>
+        <th>Menues</th>
+        <th>comidas</th>
+        <th>Fecha</th>
+        <th>Estado</th>
+      </tr>
+      <tr *ngFor="let compra of compras">
+        <td>{{ compra.cliente }}</td>
+        <td *ngFor="let menu of compra.menues">{{menu.nombre}}</td>
+        <td *ngFor="let comida of compra.comidas">{{ comida.nombre }}</td>
+        <td>{{ compra.fecha }}</td>
+        <td>{{ compra.estado}}</td>
+      </tr>
+    </table>
+  </body>
 </html>
