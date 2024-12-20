@@ -18,6 +18,8 @@ export class AdminEditarComidaComponent {
   foodData: any = {};
   id = 0;
   comida: Comida = new Comida();
+  fileSelected = false; // Variable para rastrear si se seleccionó un archivo
+
 
 
   constructor(private fb: FormBuilder, private foodsService: FoodsService, private route: ActivatedRoute, private router: Router) {
@@ -30,12 +32,11 @@ export class AdminEditarComidaComponent {
       vegetariano: [false],
       habilitado: [false],
       menus: [[]],
-      foto: ['']
     });
 
     this.foodsService.getComidaById(this.route.snapshot.params['id']).subscribe(data => {
       this.foodData = data;
-      console.log("Soy: ", this.foodData);
+      console.log("Soy foodData: ", this.foodData);
 
       // Inicialización del formulario con los datos obtenidos
       this.formulario.patchValue({
@@ -66,6 +67,11 @@ export class AdminEditarComidaComponent {
       this.comida.vegetariano = vegetariano;
       this.comida.habilitado = habilitado;
 
+      // Si no se seleccionó un archivo, usar la imagen original
+      if (!this.fileSelected) {
+        this.comida.imagen = this.foodData.imagen;
+      }
+
       console.log("Paso por aquí");
       console.log("Comida: ", this.comida);
 
@@ -93,12 +99,14 @@ export class AdminEditarComidaComponent {
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     console.log("Cierto: ", input.files && input.files.length > 0);
+
     if (input.files && input.files.length > 0) {
       const file = input.files[0];
       const reader = new FileReader();
   
       reader.onload = () => {
         this.comida.imagen = reader.result as string;
+        this.fileSelected = true; // Marcar que se seleccionó un archivo
       };
   
       reader.readAsDataURL(file); // Leer el archivo como Base64
