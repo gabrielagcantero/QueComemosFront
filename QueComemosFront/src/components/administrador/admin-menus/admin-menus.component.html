@@ -26,7 +26,7 @@
     <tr *ngFor="let menu of menues">
       <td class="col-nombre-menu">{{ menu.nombre }}</td>
   
-      <td class="col-tipo-menu">{{ menu.vegetariano ? 'Vegetariano' : 'Regular' }}</td>
+      <td class="col-tipo-menu">{{ menu.esVegetariano ? 'Vegetariano' : 'Regular' }}</td>
   
       <td class="col-precio-menu">${{ menu.precio }}</td>
   

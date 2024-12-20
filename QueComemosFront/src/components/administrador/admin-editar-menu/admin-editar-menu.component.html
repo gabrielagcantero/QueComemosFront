@@ -63,13 +63,13 @@
         id="vegetariano"
         formControlName="esVegetariano"
       />
-      <label for="vegetariano">¿Es vegetariano?</label><br />
+      <label for="vegetariano" class="small-text">¿Es vegetariano?</label><br />
     </div>
     <br />
 
     <!-- Fecha de Venta -->
     <div class="fecha-venta">
-      <label for="fechaVenta">Fecha de venta:</label>
+      <label for="fechaVenta" class="small-text">Fecha de venta:</label>
       <input
         type="date"
         id="fechaVenta"
@@ -79,9 +79,9 @@
     </div>
     <br />
 
-    <button type="submit">Guardar Cambios</button>
-    <br />
-    <button class="cancel" [routerLink]="['/admin-menus']">Cancelar</button>
+    <div class="submit-container">
+      <button type="submit">Editar comida</button>
+    </div>
   </form>
 
 </body>

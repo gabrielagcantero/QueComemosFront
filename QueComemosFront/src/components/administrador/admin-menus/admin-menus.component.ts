@@ -21,6 +21,7 @@ export class AdminMenusComponent implements OnInit {
     this.menuService.getItems().subscribe(
       (data) => {
         this.menues = data;
+        console.log('Menús obtenidos', this.menues);
        },
        (error) => {
         console.error('Error al obtener los menús', error);
