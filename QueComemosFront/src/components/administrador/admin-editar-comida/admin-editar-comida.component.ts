@@ -36,7 +36,6 @@ export class AdminEditarComidaComponent {
 
     this.foodsService.getComidaById(this.route.snapshot.params['id']).subscribe(data => {
       this.foodData = data;
-      console.log("Soy foodData: ", this.foodData);
 
       // Inicialización del formulario con los datos obtenidos
       this.formulario.patchValue({
@@ -53,7 +52,6 @@ export class AdminEditarComidaComponent {
 
   update(): void {
     // Verificar si el formulario es válido
-    
     if (this.formulario.valid) {
       const formData = this.formulario.value;
 
@@ -71,9 +69,6 @@ export class AdminEditarComidaComponent {
       if (!this.fileSelected) {
         this.comida.imagen = this.foodData.imagen;
       }
-
-      console.log("Paso por aquí");
-      console.log("Comida: ", this.comida);
 
       this.foodsService.update(this.comida).subscribe(
         response => {
@@ -98,7 +93,6 @@ export class AdminEditarComidaComponent {
 
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
-    console.log("Cierto: ", input.files && input.files.length > 0);
 
     if (input.files && input.files.length > 0) {
       const file = input.files[0];
